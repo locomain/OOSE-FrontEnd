@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/locomain/OOSE-FrontEnd#readme",
   "devDependencies": {
-    "@locomain/brawts": "^1.0.5",
+    "@locomain/brawts": "^1.0.7",
     "ts-loader": "^5.3.1",
     "typescript": "^3.2.1",
     "webpack": "^4.27.0",
