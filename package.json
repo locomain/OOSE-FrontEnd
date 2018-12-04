@@ -1,0 +1,31 @@
+{
+  "name": "oose-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/locomain/OOSE-FrontEnd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/locomain/OOSE-FrontEnd/issues"
+  },
+  "homepage": "https://github.com/locomain/OOSE-FrontEnd#readme",
+  "devDependencies": {
+    "@locomain/brawts": "^1.0.1",
+    "ts-loader": "^5.3.1",
+    "typescript": "^3.2.1",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "@locomain/braw": "^1.0.3"
+  }
+}

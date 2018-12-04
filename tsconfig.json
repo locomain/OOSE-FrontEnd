@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "module": "esnext",
+    "target": "es6",
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "allowJs": true
+  }
+}
