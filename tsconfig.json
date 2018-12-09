@@ -4,6 +4,12 @@
     "module": "esnext",
     "target": "es6",
     "experimentalDecorators": true,
-    "allowJs": true
+    "allowJs": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
   }
 }
