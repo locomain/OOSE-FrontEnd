@@ -7,13 +7,13 @@ import {component} from '@locomain/brawts'
 })
 class App extends Component {
 
-    test: string = "Natnek"; //templating test ->app.html
-    date: Date = new Date(); //binding test ->app.html
+    private test: string = "Natnek"; //templating test ->app.html
+    private date: Date = new Date(); //binding test ->app.html
 
     /**
      * Default render event
      */
-    onRender(): void{
+    public onRender(): void{
         this.attachToScope();
         setInterval(()=>this.date=new Date(),1000);
     }
@@ -21,7 +21,7 @@ class App extends Component {
     /**
      * Attaches this component class to the window
      */
-    attachToScope(){
+    private attachToScope(): void{
         window.context = this;
     }
 
