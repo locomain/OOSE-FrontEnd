@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/app.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/components/app/app.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -105,19 +105,30 @@ eval("/******/ (function(modules) { // webpackBootstrap\n/******/ \t// The modul
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"component\", function() { return component; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"directive\", function() { return directive; });\n/* harmony import */ var _locomain_braw__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @locomain/braw */ \"./node_modules/@locomain/braw/build/braw.js\");\n/* harmony import */ var _locomain_braw__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_locomain_braw__WEBPACK_IMPORTED_MODULE_0__);\n/// <reference path=\"types.d.ts\" />\r\n\r\nfunction component(componentDescription) {\r\n    return function (target) {\r\n        componentDescription.controller = target;\r\n        braw.component(componentDescription);\r\n    };\r\n}\r\nfunction directive(directiveDescription) {\r\n    return function (target) {\r\n        directiveDescription.controller = target;\r\n        braw.directive(directiveDescription);\r\n    };\r\n}\r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n    component,\r\n    directive\r\n});\r\n\n\n//# sourceURL=webpack:///./node_modules/@locomain/brawts/app/src/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"component\", function() { return component; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"directive\", function() { return directive; });\n/* harmony import */ var _locomain_braw__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @locomain/braw */ \"./node_modules/@locomain/braw/build/braw.js\");\n/* harmony import */ var _locomain_braw__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_locomain_braw__WEBPACK_IMPORTED_MODULE_0__);\n/// <reference path=\"types.d.ts\" />\n\nfunction component(componentDescription) {\n    return function (target) {\n        componentDescription.controller = target;\n        braw.component(componentDescription);\n    };\n}\nfunction directive(directiveDescription) {\n    return function (target) {\n        directiveDescription.controller = target;\n        braw.directive(directiveDescription);\n    };\n}\n//All decorators\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n    component,\n    directive\n});\n\n\n//# sourceURL=webpack:///./node_modules/@locomain/brawts/app/src/index.ts?");
 
 /***/ }),
 
-/***/ "./src/app.ts":
-/*!********************!*\
-  !*** ./src/app.ts ***!
-  \********************/
+/***/ "./src/components/app/app.html":
+/*!*************************************!*\
+  !*** ./src/components/app/app.html ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"app.html\";\n\n//# sourceURL=webpack:///./src/components/app/app.html?");
+
+/***/ }),
+
+/***/ "./src/components/app/app.ts":
+/*!***********************************!*\
+  !*** ./src/components/app/app.ts ***!
+  \***********************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _locomain_brawts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @locomain/brawts */ \"./node_modules/@locomain/brawts/app/src/index.ts\");\n///<reference types=\"@locomain/brawts\" />\r\nvar __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {\r\n    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;\r\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate === \"function\") r = Reflect.decorate(decorators, target, key, desc);\r\n    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\r\n    return c > 3 && r && Object.defineProperty(target, key, r), r;\r\n};\r\n\r\nlet App = class App extends Component {\r\n    onRender() {\r\n        console.log(\"rendering app\");\r\n    }\r\n};\r\nApp = __decorate([\r\n    Object(_locomain_brawts__WEBPACK_IMPORTED_MODULE_0__[\"component\"])({\r\n        tag: \"app-root\",\r\n        view: `<h1>test</h1>`\r\n    })\r\n], App);\r\n\n\n//# sourceURL=webpack:///./src/app.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _locomain_brawts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @locomain/brawts */ \"./node_modules/@locomain/brawts/app/src/index.ts\");\n///<reference types=\"@locomain/brawts\" />\nvar __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {\n    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate === \"function\") r = Reflect.decorate(decorators, target, key, desc);\n    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\n    return c > 3 && r && Object.defineProperty(target, key, r), r;\n};\n\nlet App = class App extends Component {\n    /**\n     * Default render event\n     */\n    onRender() {\n        this.attachToScope();\n    }\n    /**\n     * Attaches this component class to the window\n     */\n    attachToScope() {\n        window.App = this;\n    }\n};\nApp = __decorate([\n    Object(_locomain_brawts__WEBPACK_IMPORTED_MODULE_0__[\"component\"])({\n        tag: \"app-root\",\n        view: __webpack_require__(/*! ./app.html */ \"./src/components/app/app.html\")\n    })\n], App);\n\n\n//# sourceURL=webpack:///./src/components/app/app.ts?");
 
 /***/ })
 
