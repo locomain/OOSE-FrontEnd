@@ -1,50 +1,6 @@
 /******/ (function(modules) { // webpackBootstrap
-/******/ 	// install a JSONP callback for chunk loading
-/******/ 	function webpackJsonpCallback(data) {
-/******/ 		var chunkIds = data[0];
-/******/ 		var moreModules = data[1];
-/******/
-/******/
-/******/ 		// add "moreModules" to the modules object,
-/******/ 		// then flag all "chunkIds" as loaded and fire callback
-/******/ 		var moduleId, chunkId, i = 0, resolves = [];
-/******/ 		for(;i < chunkIds.length; i++) {
-/******/ 			chunkId = chunkIds[i];
-/******/ 			if(installedChunks[chunkId]) {
-/******/ 				resolves.push(installedChunks[chunkId][0]);
-/******/ 			}
-/******/ 			installedChunks[chunkId] = 0;
-/******/ 		}
-/******/ 		for(moduleId in moreModules) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
-/******/ 				modules[moduleId] = moreModules[moduleId];
-/******/ 			}
-/******/ 		}
-/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
-/******/
-/******/ 		while(resolves.length) {
-/******/ 			resolves.shift()();
-/******/ 		}
-/******/
-/******/ 	};
-/******/
-/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-/******/
-/******/ 	// object to store loaded and loading chunks
-/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 	// Promise = chunk loading, 0 = chunk loaded
-/******/ 	var installedChunks = {
-/******/ 		"main": 0
-/******/ 	};
-/******/
-/******/
-/******/
-/******/ 	// script path function
-/******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + chunkId + ".app.js"
-/******/ 	}
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -70,65 +26,6 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
-/******/ 	// This file contains only the entry chunk.
-/******/ 	// The chunk loading function for additional chunks
-/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
-/******/ 		var promises = [];
-/******/
-/******/
-/******/ 		// JSONP chunk loading for javascript
-/******/
-/******/ 		var installedChunkData = installedChunks[chunkId];
-/******/ 		if(installedChunkData !== 0) { // 0 means "already installed".
-/******/
-/******/ 			// a Promise means "currently loading".
-/******/ 			if(installedChunkData) {
-/******/ 				promises.push(installedChunkData[2]);
-/******/ 			} else {
-/******/ 				// setup Promise in chunk cache
-/******/ 				var promise = new Promise(function(resolve, reject) {
-/******/ 					installedChunkData = installedChunks[chunkId] = [resolve, reject];
-/******/ 				});
-/******/ 				promises.push(installedChunkData[2] = promise);
-/******/
-/******/ 				// start chunk loading
-/******/ 				var head = document.getElementsByTagName('head')[0];
-/******/ 				var script = document.createElement('script');
-/******/ 				var onScriptComplete;
-/******/
-/******/ 				script.charset = 'utf-8';
-/******/ 				script.timeout = 120;
-/******/ 				if (__webpack_require__.nc) {
-/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
-/******/ 				}
-/******/ 				script.src = jsonpScriptSrc(chunkId);
-/******/
-/******/ 				onScriptComplete = function (event) {
-/******/ 					// avoid mem leaks in IE.
-/******/ 					script.onerror = script.onload = null;
-/******/ 					clearTimeout(timeout);
-/******/ 					var chunk = installedChunks[chunkId];
-/******/ 					if(chunk !== 0) {
-/******/ 						if(chunk) {
-/******/ 							var errorType = event && (event.type === 'load' ? 'missing' : event.type);
-/******/ 							var realSrc = event && event.target && event.target.src;
-/******/ 							var error = new Error('Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')');
-/******/ 							error.type = errorType;
-/******/ 							error.request = realSrc;
-/******/ 							chunk[1](error);
-/******/ 						}
-/******/ 						installedChunks[chunkId] = undefined;
-/******/ 					}
-/******/ 				};
-/******/ 				var timeout = setTimeout(function(){
-/******/ 					onScriptComplete({ type: 'timeout', target: script });
-/******/ 				}, 120000);
-/******/ 				script.onerror = script.onload = onScriptComplete;
-/******/ 				head.appendChild(script);
-/******/ 			}
-/******/ 		}
-/******/ 		return Promise.all(promises);
-/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -182,22 +79,105 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
-/******/ 	// on error function for async loading
-/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
-/******/
-/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
-/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
-/******/ 	jsonpArray.push = webpackJsonpCallback;
-/******/ 	jsonpArray = jsonpArray.slice();
-/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
-/******/ 	var parentJsonpFunction = oldJsonpFunction;
-/******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/components/app/app.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./app/components/app/app.component.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
+
+/***/ "./app/components/app/app.component.html":
+/*!***********************************************!*\
+  !*** ./app/components/app/app.component.html ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"components/app.component/app.component.html\";\n\n//# sourceURL=webpack:///./app/components/app/app.component.html?");
+
+/***/ }),
+
+/***/ "./app/components/app/app.component.ts":
+/*!*********************************************!*\
+  !*** ./app/components/app/app.component.ts ***!
+  \*********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/types */ \"./app/types.ts\");\n/* harmony import */ var _components_drawer_drawer_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/drawer/drawer.component */ \"./app/components/drawer/drawer.component.ts\");\n/* harmony import */ var _components_toolbar_toolbar_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/toolbar/toolbar.component */ \"./app/components/toolbar/toolbar.component.ts\");\n/* harmony import */ var _components_material_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/material.component */ \"./app/components/material.component.ts\");\n/* harmony import */ var _locomain_brawts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @locomain/brawts */ \"./node_modules/@locomain/brawts/app/src/index.ts\");\nvar __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {\n    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate === \"function\") r = Reflect.decorate(decorators, target, key, desc);\n    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\n    return c > 3 && r && Object.defineProperty(target, key, r), r;\n};\n //initial type loading\n\n\n\n\nlet App = class App extends _components_material_component__WEBPACK_IMPORTED_MODULE_3__[\"MaterialComponent\"] {\n    constructor() {\n        super(...arguments);\n        this.test = \"Natnek\"; //templating test ->app.html\n        this.date = new Date(); //binding test ->app.html\n    }\n    /**\n     * Default render event\n     */\n    onRender() {\n        super.onRender();\n        this.attachToScope();\n        setInterval(() => this.date = new Date(), 1000); //binding test ->app.html\n    }\n    /**\n     * Attaches this component class to the window\n     */\n    attachToScope() {\n        window.context = this;\n    }\n};\nApp = __decorate([\n    Object(_locomain_brawts__WEBPACK_IMPORTED_MODULE_4__[\"component\"])({\n        tag: \"app-root\",\n        view: __webpack_require__(/*! ./app.component.html */ \"./app/components/app/app.component.html\")\n    })\n], App);\n\n\n//# sourceURL=webpack:///./app/components/app/app.component.ts?");
+
+/***/ }),
+
+/***/ "./app/components/drawer/drawer.component.html":
+/*!*****************************************************!*\
+  !*** ./app/components/drawer/drawer.component.html ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"components/drawer.component/drawer.component.html\";\n\n//# sourceURL=webpack:///./app/components/drawer/drawer.component.html?");
+
+/***/ }),
+
+/***/ "./app/components/drawer/drawer.component.ts":
+/*!***************************************************!*\
+  !*** ./app/components/drawer/drawer.component.ts ***!
+  \***************************************************/
+/*! exports provided: Drawer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Drawer\", function() { return Drawer; });\n/* harmony import */ var _components_material_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/material.component */ \"./app/components/material.component.ts\");\n/* harmony import */ var _locomain_brawts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @locomain/brawts */ \"./node_modules/@locomain/brawts/app/src/index.ts\");\nvar __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {\n    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate === \"function\") r = Reflect.decorate(decorators, target, key, desc);\n    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\n    return c > 3 && r && Object.defineProperty(target, key, r), r;\n};\n\n\nlet Drawer = class Drawer extends _components_material_component__WEBPACK_IMPORTED_MODULE_0__[\"MaterialComponent\"] {\n};\nDrawer = __decorate([\n    Object(_locomain_brawts__WEBPACK_IMPORTED_MODULE_1__[\"component\"])({\n        tag: \"app-drawer\",\n        view: __webpack_require__(/*! ./drawer.component.html */ \"./app/components/drawer/drawer.component.html\")\n    })\n], Drawer);\n\nconsole.log(\"drawer registered\");\n\n\n//# sourceURL=webpack:///./app/components/drawer/drawer.component.ts?");
+
+/***/ }),
+
+/***/ "./app/components/material.component.ts":
+/*!**********************************************!*\
+  !*** ./app/components/material.component.ts ***!
+  \**********************************************/
+/*! exports provided: MaterialComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"MaterialComponent\", function() { return MaterialComponent; });\n/* harmony import */ var _locomain_brawts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @locomain/brawts */ \"./node_modules/@locomain/brawts/app/src/index.ts\");\n\nclass MaterialComponent extends Component {\n    onRender() {\n        window.mdc.autoInit(this);\n    }\n}\n\n\n//# sourceURL=webpack:///./app/components/material.component.ts?");
+
+/***/ }),
+
+/***/ "./app/components/toolbar/toolbar.component.html":
+/*!*******************************************************!*\
+  !*** ./app/components/toolbar/toolbar.component.html ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"components/toolbar.component/toolbar.component.html\";\n\n//# sourceURL=webpack:///./app/components/toolbar/toolbar.component.html?");
+
+/***/ }),
+
+/***/ "./app/components/toolbar/toolbar.component.ts":
+/*!*****************************************************!*\
+  !*** ./app/components/toolbar/toolbar.component.ts ***!
+  \*****************************************************/
+/*! exports provided: Toolbar */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Toolbar\", function() { return Toolbar; });\n/* harmony import */ var _components_material_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/material.component */ \"./app/components/material.component.ts\");\n/* harmony import */ var _locomain_brawts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @locomain/brawts */ \"./node_modules/@locomain/brawts/app/src/index.ts\");\nvar __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {\n    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate === \"function\") r = Reflect.decorate(decorators, target, key, desc);\n    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\n    return c > 3 && r && Object.defineProperty(target, key, r), r;\n};\n\n\nlet Toolbar = class Toolbar extends _components_material_component__WEBPACK_IMPORTED_MODULE_0__[\"MaterialComponent\"] {\n};\nToolbar = __decorate([\n    Object(_locomain_brawts__WEBPACK_IMPORTED_MODULE_1__[\"component\"])({\n        tag: \"app-toolbar\",\n        view: __webpack_require__(/*! ./toolbar.component.html */ \"./app/components/toolbar/toolbar.component.html\")\n    })\n], Toolbar);\n\nconsole.log(\"toolbar registered\");\n\n\n//# sourceURL=webpack:///./app/components/toolbar/toolbar.component.ts?");
+
+/***/ }),
+
+/***/ "./app/types.ts":
+/*!**********************!*\
+  !*** ./app/types.ts ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n///<reference types=\"@locomain/brawts\" />\n/* harmony default export */ __webpack_exports__[\"default\"] = ({}); // tscompiler needs a module for the global declaration..\n\n\n//# sourceURL=webpack:///./app/types.ts?");
+
+/***/ }),
 
 /***/ "./node_modules/@locomain/braw/build/braw.js":
 /*!***************************************************!*\
@@ -219,29 +199,6 @@ eval("/******/ (function(modules) { // webpackBootstrap\n/******/ \t// The modul
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"component\", function() { return component; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"directive\", function() { return directive; });\n/* harmony import */ var _locomain_braw__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @locomain/braw */ \"./node_modules/@locomain/braw/build/braw.js\");\n/* harmony import */ var _locomain_braw__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_locomain_braw__WEBPACK_IMPORTED_MODULE_0__);\n/// <reference path=\"types.d.ts\" />\n\nfunction component(componentDescription) {\n    return function (target) {\n        componentDescription.controller = target;\n        braw.component(componentDescription);\n    };\n}\nfunction directive(directiveDescription) {\n    return function (target) {\n        directiveDescription.controller = target;\n        braw.directive(directiveDescription);\n    };\n}\n//All decorators\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n    component,\n    directive\n});\n\n\n//# sourceURL=webpack:///./node_modules/@locomain/brawts/app/src/index.ts?");
-
-/***/ }),
-
-/***/ "./src/components/app/app.html":
-/*!*************************************!*\
-  !*** ./src/components/app/app.html ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("module.exports = __webpack_require__.p + \"app.html\";\n\n//# sourceURL=webpack:///./src/components/app/app.html?");
-
-/***/ }),
-
-/***/ "./src/components/app/app.ts":
-/*!***********************************!*\
-  !*** ./src/components/app/app.ts ***!
-  \***********************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _locomain_brawts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @locomain/brawts */ \"./node_modules/@locomain/brawts/app/src/index.ts\");\nvar __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {\n    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate === \"function\") r = Reflect.decorate(decorators, target, key, desc);\n    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\n    return c > 3 && r && Object.defineProperty(target, key, r), r;\n};\n__webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! @/types */ \"./src/types.ts\"));\n\nlet App = class App extends Component {\n    constructor() {\n        super(...arguments);\n        this.test = \"Natnek\"; //templating test ->app.html\n        this.date = new Date(); //binding test ->app.html\n    }\n    /**\n     * Default render event\n     */\n    onRender() {\n        this.attachToScope();\n        setInterval(() => this.date = new Date(), 1000);\n    }\n    /**\n     * Attaches this component class to the window\n     */\n    attachToScope() {\n        window.context = this;\n    }\n};\nApp = __decorate([\n    Object(_locomain_brawts__WEBPACK_IMPORTED_MODULE_0__[\"component\"])({\n        tag: \"app-root\",\n        view: __webpack_require__(/*! ./app.html */ \"./src/components/app/app.html\")\n    })\n], App);\n\n\n//# sourceURL=webpack:///./src/components/app/app.ts?");
 
 /***/ })
 

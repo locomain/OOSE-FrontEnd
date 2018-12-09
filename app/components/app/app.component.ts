@@ -1,11 +1,16 @@
-import('@/types');
+import '@/types'; //initial type loading
+
+import '@/components/drawer/drawer.component';
+import '@/components/toolbar/toolbar.component';
+
+import {MaterialComponent} from '@/components/material.component';
 import {component} from '@locomain/brawts'
 
 @component({
     tag:"app-root",
-    view:require("./app.html")
+    view:require("./app.component.html")
 })
-class App extends Component {
+class App extends MaterialComponent {
 
     private test: string = "Natnek"; //templating test ->app.html
     private date: Date = new Date(); //binding test ->app.html
@@ -13,9 +18,11 @@ class App extends Component {
     /**
      * Default render event
      */
-    public onRender(): void{
+    public onRender(): void {
+        super.onRender();
+
         this.attachToScope();
-        setInterval(()=>this.date=new Date(),1000);
+        setInterval(()=>this.date=new Date(),1000); //binding test ->app.html
     }
 
     /**

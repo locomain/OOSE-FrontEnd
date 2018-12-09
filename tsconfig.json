@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "module": "esnext",
     "target": "es6",
     "experimentalDecorators": true,
     "allowJs": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@/*": [
-        "src/*"
+        "app/*"
       ]
     }
   }
