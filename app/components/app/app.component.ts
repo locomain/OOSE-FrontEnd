@@ -24,6 +24,7 @@ class App extends MaterialComponent {
         super.onRender();
         this.attachToScope();
         setInterval(()=>this.date=new Date(),1000); //binding test ->app.html
+        setInterval(()=>this.test1=!this.test1,1000); //binding test ->app.html
     }
 
     /**
