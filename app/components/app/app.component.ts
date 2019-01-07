@@ -4,7 +4,8 @@ import '@/components/drawer/drawer.component';
 import '@/components/toolbar/toolbar.component';
 
 import {MaterialComponent} from '@/components/material.component';
-import {component} from '@locomain/brawts'
+
+import {component} from '@locomain/brawts';
 
 @component({
     tag:"app-root",
@@ -12,6 +13,7 @@ import {component} from '@locomain/brawts'
 })
 class App extends MaterialComponent {
 
+    test1 : boolean = false;
     private test: string = "Natnek"; //templating test ->app.html
     private date: Date = new Date(); //binding test ->app.html
 

@@ -5,17 +5,9 @@
     </div>
     <div class="mdc-drawer__content">
         <nav class="mdc-list">
-            <a class="mdc-list-item mdc-list-item--activated" href="#" aria-selected="true">
+            <a (for)="let item of items" class="mdc-list-item mdc-list-item" (nav)="/kaas" [aria-selected]="selection">
                 <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
-                <span class="mdc-list-item__text">Leerlingen</span>
-            </a>
-            <a class="mdc-list-item" href="#">
-                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
-                <span class="mdc-list-item__text">Modules</span>
-            </a>
-            <a class="mdc-list-item" href="#">
-                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-                <span class="mdc-list-item__text">Dingen</span>
+                <span class="mdc-list-item__text" >Leerlingen</span>
             </a>
         </nav>
     </div>
