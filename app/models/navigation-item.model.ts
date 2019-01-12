@@ -2,11 +2,11 @@ export class NavigationItem{
 
     public name: string;
     public icon: string;
-    public targetUrl : string;
+    public url : string;
 
-    constructor(name: string, icon: string, targetUrl:string){
+    constructor(name: string, icon: string, url: string){
         this.name = name;
         this.icon = icon;
-        this.targetUrl = targetUrl;
+        this.url = url;
     }
 }

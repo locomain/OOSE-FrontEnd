@@ -3,6 +3,8 @@
 declare global {
     interface Window {
         context: any, //app context
+        component:void,
+        directive:void,
         mdc:any //material.io library
     }
 }

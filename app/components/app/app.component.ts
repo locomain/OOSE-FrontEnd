@@ -1,11 +1,10 @@
-import '#/types'; //initial type loading
+import '@/common/types'; //initial type loading
+import '@/common/braw.wrapper';
 
-import '#/components/drawer/drawer.component';
-import '#/components/toolbar/toolbar.component';
+import '@/components/drawer/drawer.component';
+import '@/components/toolbar/toolbar.component';
 
-import {MaterialComponent} from '#/components/material.component';
-
-import {component} from '@locomain/brawts';
+import {MaterialComponent} from '@/components/material.component';
 
 @component({
     tag:"app-root",

@@ -26,7 +26,7 @@ module.exports = {
     resolve: {
         extensions: ['.ts'],
         alias: {
-            '#': path.resolve(__dirname, 'app')
+            '@': path.resolve(__dirname, 'app')
         }
     },
     output: {

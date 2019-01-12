@@ -1,6 +1,5 @@
-import {MaterialComponent} from '#/components/material.component';
-import {component} from '@locomain/brawts';
-import {NavigationItem} from "#/models/navigation-item.model";
+import {MaterialComponent} from '@/components/material.component';
+import {NavigationItem} from "@/models/navigation-item.model";
 
 @component({
     tag:"app-drawer",
@@ -14,4 +13,3 @@ export class Drawer extends MaterialComponent {
         new NavigationItem("Leraren","inbox", "/kaas")
     ];
 }
-console.log("drawer registered");
