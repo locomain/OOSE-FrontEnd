@@ -7,9 +7,12 @@ import {NavigationItem} from "@/models/navigation-item.model";
 })
 export class Drawer extends MaterialComponent {
 
-    selection : number = 0;
+    /**
+     * Navigation items data used to bind the list items in the navigation drawer
+     * @type {NavigationItem[]}
+     */
     items : NavigationItem[] = [
-        new NavigationItem("Leerlingen","inbox", "/kaas"),
-        new NavigationItem("Leraren","inbox", "/kaas")
+        new NavigationItem("Leerlingen","account_box", "/students"),
+        new NavigationItem("Opleidingen","inbox", "/educations")
     ];
 }

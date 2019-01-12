@@ -1,20 +1,17 @@
 import '@/common/types'; //initial type loading
-import '@/common/braw.wrapper';
+import '@/common/braw.wrapper'; //load library wrapper
+import '@/components/'; //load all components
 
-import '@/components/drawer/drawer.component';
-import '@/components/toolbar/toolbar.component';
+import '@/common/routes';
 
 import {MaterialComponent} from '@/components/material.component';
 
 @component({
     tag:"app-root",
-    view:require("./app.component.html")
+    view:require("./app.component.html"),
+    style:require("./app.component.css")
 })
 class App extends MaterialComponent {
-
-    test1 : boolean = false;
-    private test: string = "Natnek"; //templating test ->app.html
-    private date: Date = new Date(); //binding test ->app.html
 
     /**
      * Default render event
@@ -22,8 +19,6 @@ class App extends MaterialComponent {
     public onRender(): void {
         super.onRender();
         this.attachToScope();
-        setInterval(()=>this.date=new Date(),1000); //binding test ->app.html
-        setInterval(()=>this.test1=!this.test1,1000); //binding test ->app.html
     }
 
     /**

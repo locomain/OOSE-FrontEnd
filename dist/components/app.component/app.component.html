@@ -1,15 +1,9 @@
-<app-toolbar></app-toolbar>
-
-<div class="mdc-layout-grid no-padding no-margin full-height">
-    <div class="mdc-layout-grid__inner full-height">
-        <div class="mdc-layout-grid__cell">
-            <app-drawer (if)="test1"></app-drawer>
-        </div>
-        <div class="mdc-layout-grid__cell">
-            <div>
-                <h1>Yo {{ this.test }} het is nu:</h1>
-                <h3 [inner-h-t-m-l]="date"></h3>
-            </div>
-        </div>
+<div class="app-container no-margin full-height">
+    <app-toolbar></app-toolbar>
+    <div class="drawer-holder">
+        <app-drawer ></app-drawer>
+    </div>
+    <div class="container-holder">
+        <div (nav-container)></div>
     </div>
 </div>
