@@ -1,9 +1,9 @@
-import '@/types'; //initial type loading
+import '#/types'; //initial type loading
 
-import '@/components/drawer/drawer.component';
-import '@/components/toolbar/toolbar.component';
+import '#/components/drawer/drawer.component';
+import '#/components/toolbar/toolbar.component';
 
-import {MaterialComponent} from '@/components/material.component';
+import {MaterialComponent} from '#/components/material.component';
 
 import {component} from '@locomain/brawts';
 
