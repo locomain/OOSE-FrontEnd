@@ -1,10 +1,10 @@
 <div class="container">
     <h2>Studenten</h2>
     <ul class="mdc-list mdc-list--two-line">
-        <li (for)="let education of educations" class="mdc-list-item" tabindex="0">
+        <li (for)="let student of students" class="mdc-list-item" tabindex="0">
             <span class="mdc-list-item__text">
-              <span class="mdc-list-item__primary-text" [inner-h-t-m-l]="education.name"></span>
-              <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="education.description"></span>
+              <span class="mdc-list-item__primary-text" [inner-h-t-m-l]="student.name"></span>
+              <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="student.name"></span>
             </span>
         </li>
     </ul>

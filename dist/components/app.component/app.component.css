@@ -7,7 +7,7 @@
 
 .container-holder{
     height: calc(100% - 56px);
-    width: calc(100% - 280px);
+    width: calc(100% - 256px);
     float:left;
     box-sizing: border-box;
     padding:0px 16px 0px 16px;

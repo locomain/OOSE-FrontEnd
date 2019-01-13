@@ -5,8 +5,8 @@
 }
 
 .container{
-    position: absolute;
+    position: relative;
     overflow-y:auto;
     width: 100%;
-    height:calc(100% - 56px);
+    height:100%;
 }

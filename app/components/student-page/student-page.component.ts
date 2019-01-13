@@ -1,5 +1,5 @@
 import {MaterialComponent} from "@/components/material.component";
-import {Education} from "@/models/education.model";
+import {Student} from "@/models/student.model";
 
 @component({
     tag:"student-page",
@@ -8,25 +8,8 @@ import {Education} from "@/models/education.model";
 })
 class EducationComponent extends MaterialComponent{
 
-    public educations : Education[] = [
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies"),
-        new Education("ICT XH2a 2019","ICT deeltijd opleiding voor grote dummies")
+    public students : Student[] = [
+        new Student("Kekke Henkie"),
+        new Student("Kekke Gerard"),
     ]
 }

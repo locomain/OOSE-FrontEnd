@@ -12,5 +12,9 @@ _.navigator([
     {
         url:'/educations',
         component:'<education-page></education-page>'
+    },
+    {
+        url:'/education/1',
+        component:'<module-page></module-page>'
     }
 ]);
