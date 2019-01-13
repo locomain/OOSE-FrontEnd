@@ -3,7 +3,7 @@ import '@locomain/brawts'
 _.navigator([
     {
         url:'/students',
-        component:'<h1>Test</h1>'
+        component:'<student-page></student-page>'
     },
     {
         url:'/teachers',

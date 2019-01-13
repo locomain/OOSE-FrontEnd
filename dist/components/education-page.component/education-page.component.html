@@ -1,9 +1,14 @@
-<h1>Opleidingen</h1>
-
-<div class="mdc-card">
-    <div>Kuuwl</div>
-</div>
-
-<div class="mdc-card">
-    <div>Kuuwl</div>
+<div class="container">
+    <h2>Opleidingen</h2>
+    <ul class="mdc-list mdc-list--two-line">
+        <li (for)="let education of educations" class="mdc-list-item" tabindex="0">
+            <span class="mdc-list-item__text">
+              <span class="mdc-list-item__primary-text" [inner-h-t-m-l]="education.name"></span>
+              <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="education.description"></span>
+            </span>
+        </li>
+    </ul>
+    <button class="mdc-fab" aria-label="Add" [style.background-color]="theme.secondaryColor">
+        <span class="mdc-fab__icon material-icons">add</span>
+    </button>
 </div>

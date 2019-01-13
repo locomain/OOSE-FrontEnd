@@ -1,3 +1,6 @@
+/**
+ * Definition of a navigation drawer item
+ */
 export class NavigationItem{
 
     public name: string;

@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _loc
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _locomain_brawts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @locomain/brawts */ \"./node_modules/@locomain/brawts/app/src/index.ts\");\n\n_.navigator([\n    {\n        url: '/students',\n        component: '<h1>Test</h1>'\n    },\n    {\n        url: '/teachers',\n        component: '<h1>Test</h1>'\n    },\n    {\n        url: '/educations',\n        component: '<education-page></education-page>'\n    }\n]);\n\n\n//# sourceURL=webpack:///./app/common/routes.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _locomain_brawts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @locomain/brawts */ \"./node_modules/@locomain/brawts/app/src/index.ts\");\n\n_.navigator([\n    {\n        url: '/students',\n        component: '<student-page></student-page>'\n    },\n    {\n        url: '/teachers',\n        component: '<h1>Test</h1>'\n    },\n    {\n        url: '/educations',\n        component: '<education-page></education-page>'\n    }\n]);\n\n\n//# sourceURL=webpack:///./app/common/routes.ts?");
 
 /***/ }),
 
@@ -179,6 +179,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./app/components/education-page/education-page.component.css":
+/*!********************************************************************!*\
+  !*** ./app/components/education-page/education-page.component.css ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"components/education-page.component/education-page.component.css\";\n\n//# sourceURL=webpack:///./app/components/education-page/education-page.component.css?");
+
+/***/ }),
+
 /***/ "./app/components/education-page/education-page.component.html":
 /*!*********************************************************************!*\
   !*** ./app/components/education-page/education-page.component.html ***!
@@ -194,10 +205,11 @@ eval("module.exports = __webpack_require__.p + \"components/education-page.compo
 /*!*******************************************************************!*\
   !*** ./app/components/education-page/education-page.component.ts ***!
   \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {\n    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate === \"function\") r = Reflect.decorate(decorators, target, key, desc);\n    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\n    return c > 3 && r && Object.defineProperty(target, key, r), r;\n};\nlet EducationComponent = class EducationComponent extends Component {\n};\nEducationComponent = __decorate([\n    component({\n        tag: \"education-page\",\n        view: __webpack_require__(/*! ./education-page.component.html */ \"./app/components/education-page/education-page.component.html\")\n    })\n], EducationComponent);\n\n\n//# sourceURL=webpack:///./app/components/education-page/education-page.component.ts?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_material_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/material.component */ \"./app/components/material.component.ts\");\n/* harmony import */ var _models_education_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/models/education.model */ \"./app/models/education.model.ts\");\nvar __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {\n    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate === \"function\") r = Reflect.decorate(decorators, target, key, desc);\n    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\n    return c > 3 && r && Object.defineProperty(target, key, r), r;\n};\n\n\nlet EducationComponent = class EducationComponent extends _components_material_component__WEBPACK_IMPORTED_MODULE_0__[\"MaterialComponent\"] {\n    constructor() {\n        super(...arguments);\n        this.educations = [\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\")\n        ];\n    }\n};\nEducationComponent = __decorate([\n    component({\n        tag: \"education-page\",\n        view: __webpack_require__(/*! ./education-page.component.html */ \"./app/components/education-page/education-page.component.html\"),\n        style: __webpack_require__(/*! ./education-page.component.css */ \"./app/components/education-page/education-page.component.css\")\n    })\n], EducationComponent);\n\n\n//# sourceURL=webpack:///./app/components/education-page/education-page.component.ts?");
 
 /***/ }),
 
@@ -209,7 +221,7 @@ eval("var __decorate = (this && this.__decorate) || function (decorators, target
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_drawer_drawer_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/drawer/drawer.component */ \"./app/components/drawer/drawer.component.ts\");\n/* harmony import */ var _components_toolbar_toolbar_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/toolbar/toolbar.component */ \"./app/components/toolbar/toolbar.component.ts\");\n/* harmony import */ var _components_education_page_education_page_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/education-page/education-page.component */ \"./app/components/education-page/education-page.component.ts\");\n/* harmony import */ var _components_education_page_education_page_component__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_education_page_education_page_component__WEBPACK_IMPORTED_MODULE_2__);\n/**\n * Imports all components\n */\n\n\n\n\n\n//# sourceURL=webpack:///./app/components/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_drawer_drawer_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/drawer/drawer.component */ \"./app/components/drawer/drawer.component.ts\");\n/* harmony import */ var _components_toolbar_toolbar_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/toolbar/toolbar.component */ \"./app/components/toolbar/toolbar.component.ts\");\n/* harmony import */ var _components_education_page_education_page_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/education-page/education-page.component */ \"./app/components/education-page/education-page.component.ts\");\n/* harmony import */ var _components_student_page_student_page_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/student-page/student-page.component */ \"./app/components/student-page/student-page.component.ts\");\n/**\n * Imports all components\n */\n\n\n\n\n\n\n//# sourceURL=webpack:///./app/components/index.ts?");
 
 /***/ }),
 
@@ -221,7 +233,41 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _com
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"MaterialComponent\", function() { return MaterialComponent; });\n/* harmony import */ var _locomain_brawts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @locomain/brawts */ \"./node_modules/@locomain/brawts/app/src/index.ts\");\n\nclass MaterialComponent extends Component {\n    onRender() {\n        window.mdc.autoInit(this);\n    }\n}\n\n\n//# sourceURL=webpack:///./app/components/material.component.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"MaterialComponent\", function() { return MaterialComponent; });\n/* harmony import */ var _locomain_brawts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @locomain/brawts */ \"./node_modules/@locomain/brawts/app/src/index.ts\");\n/* harmony import */ var _utils_theme__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/utils/theme */ \"./app/utils/theme.ts\");\n\n\nclass MaterialComponent extends Component {\n    constructor() {\n        super();\n        this.theme = new _utils_theme__WEBPACK_IMPORTED_MODULE_1__[\"Theme\"]();\n    }\n    onRender() {\n        window.mdc.autoInit(this);\n    }\n}\n\n\n//# sourceURL=webpack:///./app/components/material.component.ts?");
+
+/***/ }),
+
+/***/ "./app/components/student-page/student-page.component.css":
+/*!****************************************************************!*\
+  !*** ./app/components/student-page/student-page.component.css ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"components/student-page.component/student-page.component.css\";\n\n//# sourceURL=webpack:///./app/components/student-page/student-page.component.css?");
+
+/***/ }),
+
+/***/ "./app/components/student-page/student-page.component.html":
+/*!*****************************************************************!*\
+  !*** ./app/components/student-page/student-page.component.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"components/student-page.component/student-page.component.html\";\n\n//# sourceURL=webpack:///./app/components/student-page/student-page.component.html?");
+
+/***/ }),
+
+/***/ "./app/components/student-page/student-page.component.ts":
+/*!***************************************************************!*\
+  !*** ./app/components/student-page/student-page.component.ts ***!
+  \***************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_material_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/material.component */ \"./app/components/material.component.ts\");\n/* harmony import */ var _models_education_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/models/education.model */ \"./app/models/education.model.ts\");\nvar __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {\n    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate === \"function\") r = Reflect.decorate(decorators, target, key, desc);\n    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\n    return c > 3 && r && Object.defineProperty(target, key, r), r;\n};\n\n\nlet EducationComponent = class EducationComponent extends _components_material_component__WEBPACK_IMPORTED_MODULE_0__[\"MaterialComponent\"] {\n    constructor() {\n        super(...arguments);\n        this.educations = [\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\"),\n            new _models_education_model__WEBPACK_IMPORTED_MODULE_1__[\"Education\"](\"ICT XH2a 2019\", \"ICT deeltijd opleiding voor grote dummies\")\n        ];\n    }\n};\nEducationComponent = __decorate([\n    component({\n        tag: \"student-page\",\n        view: __webpack_require__(/*! ./student-page.component.html */ \"./app/components/student-page/student-page.component.html\"),\n        style: __webpack_require__(/*! ./student-page.component.css */ \"./app/components/student-page/student-page.component.css\")\n    })\n], EducationComponent);\n\n\n//# sourceURL=webpack:///./app/components/student-page/student-page.component.ts?");
 
 /***/ }),
 
@@ -259,6 +305,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./app/models/education.model.ts":
+/*!***************************************!*\
+  !*** ./app/models/education.model.ts ***!
+  \***************************************/
+/*! exports provided: Education */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Education\", function() { return Education; });\n/**\n * Definition of a education object in OOSE\n */\nclass Education {\n    constructor(name, description) {\n        this.name = name;\n        this.description = description;\n    }\n}\n\n\n//# sourceURL=webpack:///./app/models/education.model.ts?");
+
+/***/ }),
+
 /***/ "./app/models/navigation-item.model.ts":
 /*!*********************************************!*\
   !*** ./app/models/navigation-item.model.ts ***!
@@ -267,7 +325,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"NavigationItem\", function() { return NavigationItem; });\nclass NavigationItem {\n    constructor(name, icon, url) {\n        this.name = name;\n        this.icon = icon;\n        this.url = url;\n    }\n}\n\n\n//# sourceURL=webpack:///./app/models/navigation-item.model.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"NavigationItem\", function() { return NavigationItem; });\n/**\n * Definition of a navigation drawer item\n */\nclass NavigationItem {\n    constructor(name, icon, url) {\n        this.name = name;\n        this.icon = icon;\n        this.url = url;\n    }\n}\n\n\n//# sourceURL=webpack:///./app/models/navigation-item.model.ts?");
+
+/***/ }),
+
+/***/ "./app/utils/theme.ts":
+/*!****************************!*\
+  !*** ./app/utils/theme.ts ***!
+  \****************************/
+/*! exports provided: Theme */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Theme\", function() { return Theme; });\nclass Theme {\n    constructor() {\n        this.primaryColor = \"blue\";\n        this.secondaryColor = \"red\";\n    }\n}\n\n\n//# sourceURL=webpack:///./app/utils/theme.ts?");
 
 /***/ }),
 

@@ -2,9 +2,9 @@ import {MaterialComponent} from "@/components/material.component";
 import {Education} from "@/models/education.model";
 
 @component({
-    tag:"education-page",
-    view:require("./education-page.component.html"),
-    style:require("./education-page.component.css")
+    tag:"student-page",
+    view:require("./student-page.component.html"),
+    style:require("./student-page.component.css")
 })
 class EducationComponent extends MaterialComponent{
 

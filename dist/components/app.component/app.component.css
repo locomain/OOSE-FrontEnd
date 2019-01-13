@@ -1,13 +1,12 @@
 .drawer-holder{
     position:relative;
-    height: 100%;
+    height: calc(100% - 56px);
     width: 256px;
     float:left;
 }
 
 .container-holder{
-    position:relative;
-    height: 100%;
+    height: calc(100% - 56px);
     width: calc(100% - 280px);
     float:left;
     box-sizing: border-box;
