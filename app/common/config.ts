@@ -1,4 +1,4 @@
 export default {
     DEV: true,
-    WEBSERVICE_URL : "https://jsonplaceholder.typicode.com/posts"
+    WEBSERVICE_URL : "http://84.84.151.92:3000/user/1"
 }

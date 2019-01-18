@@ -1,5 +1,7 @@
 import {MaterialComponent} from "@/components/material.component";
 import {Student} from "@/models/student.model";
+import {bind} from "@/decorators/bind";
+import {PersonDialog} from "@/components/person-dialog/person-dialog.component";
 
 @component({
     tag:"student-page",
@@ -8,22 +10,32 @@ import {Student} from "@/models/student.model";
 })
 class EducationComponent extends MaterialComponent{
 
-    public dialog : HTMLElement;
+    private dialog: PersonDialog;
 
-    public students : Student[] = [
+    public students: Student[] = [
         new Student("Kekke Henkie"),
         new Student("Kekke Gerard"),
     ];
 
-
+    /**
+     * Default braw render event
+     */
     onRender(): void{
-        console.dir(this.dialog);
-        console.dir(this);
-        //@ts-ignore
-        //const dialog = new window.mdc.dialog.MDCDialog(this.dialog);
+        super.onRender();
     }
 
     loadStudents(): void{
 
+    }
+
+    @bind
+    saveStudent(formData){
+
+    }
+
+    @bind
+    addStudent(): void{
+        console.log("klik");
+        this.dialog.open(this.saveStudent);
     }
 }

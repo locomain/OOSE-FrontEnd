@@ -20,7 +20,7 @@ class ModuleComponent extends MaterialComponent{
     onRender(): void{
         const parameters = braw.navigationEngine.params;
         if(parameters.id){
-            this.loadModules(parameters.id).then(e=>console.log(e)).catch(e=>console.log(e));
+            this.loadModules(parameters.id);
         }
     }
 

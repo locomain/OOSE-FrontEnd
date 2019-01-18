@@ -45,7 +45,6 @@ export class RequestService{
     static async request(url: string, type: RequestType, data: object = {}): Promise<any>{
         const params = {
             method: type,
-            cache: "no-cache",
             headers: {
                 "Content-Type": "application/json"
             }
@@ -54,7 +53,7 @@ export class RequestService{
         if(type!=RequestType.GET)params.body = JSON.stringify(data);
         // @ts-ignore
         const response = await fetch(url,params);
-        return await response.json();
+        return await response.json()
     }
 
 }
