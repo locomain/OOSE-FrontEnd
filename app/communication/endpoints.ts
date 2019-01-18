@@ -15,7 +15,7 @@ export class Endpoints{
 
     /**
      * Performs a webservice request
-     * 
+     *
      * @param {string} endpoint
      * @param {RequestType} type
      * @param {object} data

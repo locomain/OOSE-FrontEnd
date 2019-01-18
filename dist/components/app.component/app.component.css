@@ -10,5 +10,8 @@
     width: calc(100% - 256px);
     float:left;
     box-sizing: border-box;
-    padding:0px 16px 0px 16px;
+}
+
+.container h2{
+    margin-left:16px;
 }

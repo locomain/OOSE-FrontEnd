@@ -1,9 +1,21 @@
 .mdc-toolbar{
-    height:56px!important;
+    min-height:56px!important;
+    height: 56px!important;
+}
+
+.mdc-toolbar__row{
+    min-height:56px!important;
+    height: 56px!important;
+}
+
+.mdc-toolbar__section--align-start{
+    padding-left:0!important;
 }
 
 .mdc-toolbar__title{
-    margin-left:12px!important;
+    padding-left:0!important;
+    margin-left:16px!important;
     line-height:56px!important;
-    height:56px!important;
+    min-height:56px!important;
+    height: 56px!important;
 }

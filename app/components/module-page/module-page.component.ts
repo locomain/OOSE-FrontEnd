@@ -16,7 +16,7 @@ class ModuleComponent extends MaterialComponent{
     /**
      * Default braw on render event
      */
-    onRender(){
+    onRender(): void{
         const parameters = braw.navigationEngine.params;
         if(parameters.id){
             this.loadModules(parameters.id);
@@ -27,10 +27,11 @@ class ModuleComponent extends MaterialComponent{
      *
      * @param id
      */
-    loadModules(id){
+    loadModules(id): void{
+        console.log(id);
         this.modules = [
-            new Module("Module kaas"),
-            new Module("Module worst"),
+            new Module("Module kaas 2"),
+            new Module("Module worst 2"),
         ];
     }
 
