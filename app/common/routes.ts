@@ -18,7 +18,11 @@ _.navigator([
         component:'<education-page></education-page>'
     },
     {
-        url:'/education/1',
+        url:'/education/:id',
+        component:'<module-page></module-page>'
+    },
+    {
+        url:'/module/:id',
         component:'<module-page></module-page>'
     }
 ]);

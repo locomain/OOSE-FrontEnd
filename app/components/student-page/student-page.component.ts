@@ -11,5 +11,14 @@ class EducationComponent extends MaterialComponent{
     public students : Student[] = [
         new Student("Kekke Henkie"),
         new Student("Kekke Gerard"),
-    ]
+    ];
+
+
+    onRender(){
+
+    }
+
+    loadStudents(){
+        
+    }
 }
