@@ -8,17 +8,22 @@ import {Student} from "@/models/student.model";
 })
 class EducationComponent extends MaterialComponent{
 
+    public dialog : HTMLElement;
+
     public students : Student[] = [
         new Student("Kekke Henkie"),
         new Student("Kekke Gerard"),
     ];
 
 
-    onRender(){
-
+    onRender(): void{
+        console.dir(this.dialog);
+        console.dir(this);
+        //@ts-ignore
+        //const dialog = new window.mdc.dialog.MDCDialog(this.dialog);
     }
 
-    loadStudents(){
-        
+    loadStudents(): void{
+
     }
 }

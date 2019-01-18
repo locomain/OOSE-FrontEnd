@@ -1,5 +1,4 @@
 export default {
     DEV: true,
-    WEBSERVICE_PORT:"4000",
-    WEBSERVICE_URL : "kaas.nl"
+    WEBSERVICE_URL : "https://jsonplaceholder.typicode.com/posts"
 }

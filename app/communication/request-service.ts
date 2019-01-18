@@ -9,7 +9,7 @@ export class RequestService{
      * @returns {Promise<any>}
      */
     static async get(url: string): Promise<any>{
-        return await this.request(url,RequestType.GET,null);
+        return this.request(url,RequestType.GET,null);
     }
 
     /**
@@ -20,7 +20,7 @@ export class RequestService{
      * @returns {Promise<any>}
      */
     static async post(url: string ,data: object): Promise<any>{
-        return await this.request(url,RequestType.POST,data);
+        return this.request(url,RequestType.POST,data);
     }
 
     /**
@@ -31,7 +31,7 @@ export class RequestService{
      * @returns {Promise<any>}
      */
     static async put(url: string ,data: object): Promise<any>{
-        return await this.request(url,RequestType.PUT,data);
+        return this.request(url,RequestType.PUT,data);
     }
 
     /**
@@ -42,19 +42,18 @@ export class RequestService{
      * @param {object} data
      * @returns {Promise<any>}
      */
-    static async request(url: string,type: RequestType,data: object = {}): Promise<any>{
-        const response = await fetch(url,{
+    static async request(url: string, type: RequestType, data: object = {}): Promise<any>{
+        const params = {
             method: type,
-            mode: "cors",
             cache: "no-cache",
-            credentials: "same-origin",
             headers: {
                 "Content-Type": "application/json"
-            },
-            redirect: "follow",
-            referrer: "no-referrer",
-            body: JSON.stringify(data),
-        });
+            }
+        };
+        // @ts-ignore
+        if(type!=RequestType.GET)params.body = JSON.stringify(data);
+        // @ts-ignore
+        const response = await fetch(url,params);
         return await response.json();
     }
 

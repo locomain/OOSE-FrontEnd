@@ -1,5 +1,6 @@
 import {MaterialComponent} from "@/components/material.component";
 import {Module} from '@/models/module.model';
+import {Endpoints} from "@/communication/endpoints";
 
 @component({
     tag:"module-page",
@@ -19,7 +20,7 @@ class ModuleComponent extends MaterialComponent{
     onRender(): void{
         const parameters = braw.navigationEngine.params;
         if(parameters.id){
-            this.loadModules(parameters.id);
+            this.loadModules(parameters.id).then(e=>console.log(e)).catch(e=>console.log(e));
         }
     }
 
@@ -27,8 +28,10 @@ class ModuleComponent extends MaterialComponent{
      *
      * @param id
      */
-    loadModules(id): void{
+    async loadModules(id): Promise<any>{
         console.log(id);
+        const test = await Endpoints.getModules(id);
+        console.log(test);
         this.modules = [
             new Module("Module kaas 2"),
             new Module("Module worst 2"),
