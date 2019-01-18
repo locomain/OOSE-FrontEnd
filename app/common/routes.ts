@@ -2,12 +2,16 @@ import '@locomain/brawts'
 
 _.navigator([
     {
+        url:'',
+        component:'<student-page></student-page>'
+    },
+    {
         url:'/students',
         component:'<student-page></student-page>'
     },
     {
         url:'/teachers',
-        component:'<h1>Test</h1>'
+        component:'<teacher-page></teacher-page>'
     },
     {
         url:'/educations',

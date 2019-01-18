@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Leraren</h2>
+    <ul class="mdc-list mdc-list--two-line">
+        <li (for)="let teacher of teachers" class="mdc-list-item" tabindex="0">
+            <span class="mdc-list-item__text">
+              <span class="mdc-list-item__primary-text" [inner-h-t-m-l]="teacher.name"></span>
+              <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="teacher.name"></span>
+            </span>
+        </li>
+    </ul>
+    <button class="mdc-fab" aria-label="Add" [style.background-color]="theme.secondaryColor">
+        <span class="mdc-fab__icon material-icons">add</span>
+    </button>
+</div>

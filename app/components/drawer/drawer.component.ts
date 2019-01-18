@@ -13,6 +13,7 @@ export class Drawer extends MaterialComponent {
      */
     items : NavigationItem[] = [
         new NavigationItem("Studenten","account_box", "/students"),
+        new NavigationItem("Leraren","supervisor_account", "/teachers"),
         new NavigationItem("Opleidingen","inbox", "/educations")
     ];
 }

@@ -1,6 +1,6 @@
 export class Theme {
 
-    public primaryColor = "blue";
-    public secondaryColor = "red";
+    public primaryColor = "#641a4c";
+    public secondaryColor = "#faab1a";
 
 }
