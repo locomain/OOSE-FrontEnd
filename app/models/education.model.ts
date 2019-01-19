@@ -1,5 +1,3 @@
-import {Student} from "@/models/student.model";
-
 /**
  * Definition of a education object in OOSE
  */
@@ -19,8 +17,12 @@ export class Education {
      * Creates a education from the webservice student structure
      * @param obj
      */
-    static fromWebservice(obj:any): Education{
-        return new Education(obj.naam,obj.startjaar,obj.id);
+    static fromWebservice(obj: any, educationPrefab: Education = null): Education{
+        if(!educationPrefab)return new Education(obj.naam,obj.startjaar,obj.id);
+        educationPrefab.name = obj.naam;
+        educationPrefab.year = obj.startjaar;
+        educationPrefab.id = obj.id;
+        return educationPrefab;
     }
 
 }

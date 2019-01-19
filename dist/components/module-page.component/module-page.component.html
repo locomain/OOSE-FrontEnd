@@ -1,5 +1,6 @@
 <div class="container">
-    <h2>Modules</h2>
+    <h2><span [inner-text]="education.name"></span> <span [inner-text]="education.year"></span></h2>
+    <h4 class="subtitle">Modules</h4>
     <ul class="mdc-list mdc-list--two-line">
         <li (for)="let module of modules" class="mdc-list-item" tabindex="0">
             <span class="mdc-list-item__text">
@@ -12,3 +13,5 @@
         <span class="mdc-fab__icon material-icons">add</span>
     </button>
 </div>
+<person-dialog #dialog person="Student"></person-dialog>
+<page-loader (if)="loading"></page-loader>

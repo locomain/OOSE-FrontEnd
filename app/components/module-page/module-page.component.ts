@@ -1,6 +1,8 @@
 import {MaterialComponent} from "@/components/material.component";
 import {Module} from '@/models/module.model';
 import {Endpoints} from "@/communication/endpoints";
+import {Education} from "@/models/education.model";
+import {Student} from "@/models/student.model";
 
 @component({
     tag:"module-page",
@@ -9,10 +11,14 @@ import {Endpoints} from "@/communication/endpoints";
 })
 class ModuleComponent extends MaterialComponent{
 
-    public modules : Module[] = [
-        new Module("Module kaas"),
-        new Module("Module worst"),
-    ];
+    public loading = false;
+    public education: Education;
+    public modules : Module[] = [];
+
+    constructor(){
+        super();
+        this.education = new Education("Opleiding","");
+    }
 
     /**
      * Default braw on render event
@@ -20,22 +26,44 @@ class ModuleComponent extends MaterialComponent{
     onRender(): void{
         const parameters = braw.navigationEngine.params;
         if(parameters.id){
-            this.loadModules(parameters.id);
+            this.loadData(parameters.id);
         }
     }
 
     /**
+     * Loads all the page data
+     * @param id
+     * @returns {Promise<any>}
+     */
+    async loadData(id) : Promise<any>{
+        this.loading = true;
+        await this.loadEducation(id);
+        await this.loadModules(id);
+        this.loading = false;
+    }
+
+    /**
+     * Loads the education
      *
+     * @param {number} id
+     * @returns {Promise<any>}
+     */
+    async loadEducation(id:number): Promise<any>{
+        const result = await Endpoints.getEducation(id);
+        if(result){
+            Education.fromWebservice(result,this.education);
+        }
+    }
+
+    /**
+     * Load modules from education id
      * @param id
      */
-    async loadModules(id): Promise<any>{
-        console.log(id);
-        const test = await Endpoints.getModules(id);
-        console.log(test);
-        this.modules = [
-            new Module("Module kaas 2"),
-            new Module("Module worst 2"),
-        ];
+    async loadModules(id: number): Promise<any>{
+        const result = await Endpoints.getModules(id);
+        if(result){
+            this.modules = result.map(module=>Module.fromWebservice(module));
+        }
     }
 
 }
