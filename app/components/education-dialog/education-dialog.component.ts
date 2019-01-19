@@ -1,36 +1,29 @@
 import {MaterialComponent} from "@/components/material.component";
 import bind from "@/decorators/bind";
 import {InputField} from "@/components/input-field/input-field.component";
-import {Person} from "@/models/person.model";
+import {Education} from "@/models/education.model";
 import {IDialog} from "@/interfaces/dialog.interface";
 
 @component({
-    tag:"person-dialog",
-    view:require("./person-dialog.component.html"),
-    style:require("./person-dialog.component.css")
+    tag:"education-dialog",
+    view:require("./education-dialog.component.html"),
+    style:require("./education-dialog.component.css")
 })
-export class PersonDialog extends MaterialComponent implements IDialog{
+export class EducationDialog extends MaterialComponent implements IDialog{
 
     private dialog: HTMLElement;
-    private firstname: InputField;
-    private lastname: InputField;
-    private mail: InputField;
+    private name: InputField;
+    private year: InputField;
 
     private instance: any;
-    private personType: string;
     private callback:(formData:object)=>void;
-
-    constructor(){
-        super();
-        this.personType = "Persoon";
-    }
 
     /**
      * Opens the dialog
      * @param {(formData: object) => void} callback
      */
     @bind
-    public open(callback:(formPerson:Person)=>void): void {
+    public open(callback:(education:Education)=>void): void {
         this.callback = callback;
         this.instance = new window.mdc.dialog.MDCDialog(this.dialog);
         this.instance.open();
@@ -39,13 +32,13 @@ export class PersonDialog extends MaterialComponent implements IDialog{
     /**
      * Envokes callback
      */
-    public envokeCallback(): void{
+    public envokeCallback(){
         if(!!this.callback){
             this.callback(
-                new Person(
-                    this.firstname.value,
-                    this.lastname.value,
-                    this.mail.value)
+                new Education(
+                    this.name.value,
+                    this.year.value
+                )
             );
             this.callback = null;
         }
@@ -55,9 +48,8 @@ export class PersonDialog extends MaterialComponent implements IDialog{
      * Clears the input fields
      */
     public clear(): void{
-        this.firstname.clear();
-        this.lastname.clear();
-        this.mail.clear();
+        this.name.clear();
+        this.year.clear();
     }
 
     /**

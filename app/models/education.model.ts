@@ -9,7 +9,7 @@ export class Education {
     public name: string;
     public year: string;
 
-    constructor(name: string, year: string, id:number){
+    constructor(name: string, year: string, id:number = 0){
         this.name = name;
         this.id = id;
         this.year = year;

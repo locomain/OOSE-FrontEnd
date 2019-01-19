@@ -7,7 +7,7 @@
             <section id="mdc-dialog-with-list-description" class="mdc-dialog__content">
                 <input-field #firstname label="Voornaam"></input-field>
                 <input-field #lastname label="Achternaam"></input-field>
-                <input-field #mail label="Email"></input-field>
+                <input-field #mail type="email" label="Email"></input-field>
             </section>
             <footer class="mdc-dialog__actions">
                 <button type="button" [onclick]="cancel" [style.color]="theme.darkColor" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" data-mdc-dialog-action="close">

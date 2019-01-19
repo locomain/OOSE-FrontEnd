@@ -3,11 +3,10 @@
     <div class="mdc-dialog__scrim no-click-backdrop"></div>
     <div class="mdc-dialog__container">
         <div class="mdc-dialog__surface">
-            <h2 class="mdc-dialog__title"><span [inner-text]="attributes.person.value"></span> aanmaken</h2>
+            <h2 class="mdc-dialog__title">Opleiding aanmaken</h2>
             <section id="mdc-dialog-with-list-description" class="mdc-dialog__content">
-                <input-field #firstname label="Voornaam"></input-field>
-                <input-field #lastname label="Achternaam"></input-field>
-                <input-field #mail type="email" label="Email"></input-field>
+                <input-field #name label="Naam"></input-field>
+                <input-field #year type="date" label="Startdatum"></input-field>
             </section>
             <footer class="mdc-dialog__actions">
                 <button type="button" [onclick]="cancel" [style.color]="theme.darkColor" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" data-mdc-dialog-action="close">
