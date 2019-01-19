@@ -118,7 +118,18 @@ export class Endpoints{
      * @returns {Promise<any>}
      */
     static async getLesson(lessonId){
-        return this.webserviceRequest(`module/${lessonId}`,RequestType.GET);
+        return this.webserviceRequest(`class/${lessonId}`,RequestType.GET);
+    }
+
+    /**
+     * Creates a lesson
+     *
+     * @param lesson
+     * @returns {Promise<any>}
+     */
+    static async createLesson(moduleId,lesson){
+        lesson["module_id"] = moduleId;
+        return this.webserviceRequest(`class`,RequestType.POST,lesson);
     }
 
     /**

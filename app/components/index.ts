@@ -10,6 +10,7 @@ import '@/components/student-page/student-page.component';
 import '@/components/teacher-page/teacher-page.component';
 import '@/components/module-page/module-page.component';
 import '@/components/dialogs/person-dialog/person-dialog.component';
+import '@/components/dialogs/lesson-dialog/lesson-dialog.component';
 import '@/components/dialogs/module-dialog/module-dialog.component';
 import '@/components/dialogs/education-dialog/education-dialog.component';
 import '@/components/input-field/input-field.component';

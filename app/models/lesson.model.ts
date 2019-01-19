@@ -1,6 +1,8 @@
 /**
  * Definition of a education object in OOSE
  */
+import {Utils} from "@/utils/utils";
+
 export class Lesson{
 
     public name: string;
@@ -21,10 +23,11 @@ export class Lesson{
      * @param obj
      */
     static fromWebservice(obj: any, prefab: Lesson = null): Lesson{
-        if(!prefab)return new Lesson(obj.naam,obj.lesstof,obj.datum,obj.id);
+        const date = Utils.dateToReadableDate(obj.datum);
+        if(!prefab)return new Lesson(obj.naam,obj.lesstof,date,obj.id);
         prefab.name = obj.naam;
         prefab.content = obj.lesstof;
-        prefab.date = obj.date;
+        prefab.date = date;
         prefab.id = obj.id;
         return prefab;
     }

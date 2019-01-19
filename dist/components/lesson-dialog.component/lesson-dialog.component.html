@@ -1,0 +1,33 @@
+<div #dialog class="mdc-dialog mdc-dialog--scrollable" role="alertdialog"
+     aria-modal="true" aria-labelledby="mdc-dialog-with-list-label" aria-describedby="mdc-dialog-with-list-description">
+    <div class="mdc-dialog__scrim no-click-backdrop"></div>
+    <div class="mdc-dialog__container">
+        <div class="mdc-dialog__surface">
+            <h2 class="mdc-dialog__title">Les aanmaken</h2>
+            <section id="mdc-dialog-with-list-description" class="mdc-dialog__content">
+                <input-field #name label="Naam"></input-field>
+                <input-field #date type="date" label="Datum"></input-field>
+                <p>Lesstof</p>
+                <div class="mdc-text-field mdc-text-field--textarea">
+                    <textarea #editor [oninput]="onTyped" id="textarea" class="mdc-text-field__input" rows="8" cols="40"></textarea>
+                    <div class="mdc-notched-outline">
+                        <div class="mdc-notched-outline__leading"></div>
+                        <div class="mdc-notched-outline__notch">
+                        </div>
+                        <div class="mdc-notched-outline__trailing"></div>
+                    </div>
+                </div>
+                <p>Lesstof preview weergave</p>
+                <div class="html-viewer" [inner-h-t-m-l]="previewData"></div>
+            </section>
+            <footer class="mdc-dialog__actions">
+                <button type="button" [onclick]="cancel" [style.color]="theme.darkColor" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" data-mdc-dialog-action="close">
+                    Annuleren
+                </button>
+                <button type="button" [onclick]="save" [style.color]="theme.secondaryColor" class="mdc-button mdc-dialog__button mdc-ripple-upgraded">
+                    Opslaan
+                </button>
+            </footer>
+        </div>
+    </div>
+</div>

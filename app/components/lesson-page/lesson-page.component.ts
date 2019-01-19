@@ -6,6 +6,7 @@ import {Person} from "@/models/person.model";
 import {bind} from "@/decorators/bind";
 import {Lesson} from "@/models/lesson.model";
 import {Utils} from "@/utils/utils";
+import {LessonDialog} from "@/components/dialogs/lesson-dialog/lesson-dialog.component";
 
 @component({
     tag:"lesson-page",
@@ -16,7 +17,7 @@ class LessonPageComponent extends MaterialComponent{
 
     public loading = false;
     public module: Module;
-    public dialog: ModuleDialog;
+    public dialog: LessonDialog;
     public lessons: Lesson[] = [];
     public id: number;
 
@@ -63,7 +64,7 @@ class LessonPageComponent extends MaterialComponent{
     }
 
     /**
-     * Load modules from education id
+     * Load lessons from module id
      * @param id
      */
     async loadLessons(): Promise<any>{
@@ -76,21 +77,21 @@ class LessonPageComponent extends MaterialComponent{
 
 
     /**
-     * Saves/post a student to the api
-     * @param {Person} person
+     * Saves/post a lesson to the api
+     * @param {Lesson} lesson
      */
     @bind
     saveLesson(lesson: Lesson){
         this.loading = true;
-        Endpoints.createModule(this.id,module).then(()=>this.loadLessons());
+        Endpoints.createLesson(this.id,lesson).then(()=>this.loadData());
     }
 
     /**
      * Opens the create student dialog to create a student
      */
     @bind
-    addModule(): void{
-       // this.dialog.open(this.saveLesson);
+    addLesson(): void{
+        this.dialog.open(this.saveLesson);
     }
 
 }

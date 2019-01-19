@@ -19,3 +19,9 @@ body {
 .no-margin{
     margin: 0!important;
 }
+
+.html-viewer{
+    padding: 4px;
+    min-height: 400px;
+    border: 1px solid #00000026;
+}
