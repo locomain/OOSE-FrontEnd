@@ -4,6 +4,7 @@ import {Endpoints} from "@/communication/endpoints";
 import {bind} from "@/decorators/bind";
 import {Lesson} from "@/models/lesson.model";
 import {LessonDialog} from "@/components/dialogs/lesson-dialog/lesson-dialog.component";
+import {StudyGoal} from "@/models/studygoal.model";
 
 @component({
     tag:"lesson-page",
@@ -16,6 +17,8 @@ class LessonPageComponent extends MaterialComponent{
     public module: Module;
     public dialog: LessonDialog;
     public lessons: Lesson[] = [];
+    public usedStudyGoals: StudyGoal[] = [];
+    public unusedStudyGoals: StudyGoal[] = [];
     public id: number;
     private educationId: number;
 
@@ -29,7 +32,6 @@ class LessonPageComponent extends MaterialComponent{
      */
     onRender(): void{
         const parameters = braw.navigationEngine.params;
-        console.log(parameters);
         if(parameters){
             this.educationId = parameters.educationid;
             this.id = parameters.id;
@@ -42,10 +44,11 @@ class LessonPageComponent extends MaterialComponent{
      * @param id
      * @returns {Promise<any>}
      */
-    async loadData() : Promise<any>{
+    async loadData(): Promise<any>{
         this.loading = true;
         await this.loadModule();
         await this.loadLessons();
+        await this.loadStudyGoals();
         this.loading = false;
     }
 
@@ -70,6 +73,19 @@ class LessonPageComponent extends MaterialComponent{
         const result = await Endpoints.getLessons(this.id);
         if(result){
             this.lessons = result.map(lesson=>Lesson.fromWebservice(lesson));
+        }
+    }
+
+    /**
+     * Load studygoals from module id
+     * @param id
+     */
+    async loadStudyGoals(): Promise<any>{
+        const result = await Endpoints.getStudyGoalsStatusFromModule(this.id);
+        console.log(result);
+        if(result){
+            this.usedStudyGoals = result.used.map(studyGoal=>StudyGoal.fromWebservice(studyGoal));
+            this.unusedStudyGoals = result.unused.map(studyGoal=>StudyGoal.fromWebservice(studyGoal));
         }
     }
 

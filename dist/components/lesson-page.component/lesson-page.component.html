@@ -9,15 +9,34 @@
             </span>
             </li>
         </ul>
+        <button class="mdc-fab" [onclick]="addLesson" aria-label="Add" [style.background-color]="theme.secondaryColor">
+            <span class="mdc-fab__icon material-icons">add</span>
+        </button>
     </div>
     <div class="container container-right">
         <h2><span [inner-text]="module.name"></span></h2>
         <h4  class="subtitle"><span [inner-text]="module.startDate"></span> - <span [inner-text]="module.endDate"></span></h4>
         <p class="subtitle" [inner-text]="module.description"></p>
-
-        <button class="mdc-fab" [onclick]="addLesson" aria-label="Add" [style.background-color]="theme.secondaryColor">
-            <span class="mdc-fab__icon material-icons">add</span>
+        <div class="border-top"></div>
+        <h4 class="goal-title">Leerdoelen</h4>
+        <button class="goal-button mdc-button mdc-button--unelevated">
+            <span class="mdc-button__label">Toevoegen</span>
         </button>
+        <ul class="mdc-list mdc-list--two-line">
+            <li (for)="let goal of usedStudyGoals" class="mdc-list-item" tabindex="0">
+                <span class="mdc-list-item__text">
+                  <span class="mdc-list-item__primary-text" [inner-text]="goal.name"></span>
+                  <span class="mdc-list-item__secondary-text" [inner-text]="goal.description"></span>
+                </span>
+            </li>
+            <h4 class="goal-title">Ongebruikte Leerdoelen</h4>
+            <li (for)="let goal of unusedStudyGoals" class="mdc-list-item" tabindex="0">
+                <span class="mdc-list-item__text">
+                  <span class="mdc-list-item__primary-text" [inner-text]="goal.name"></span>
+                  <span class="mdc-list-item__secondary-text" [inner-text]="goal.description"></span>
+                </span>
+            </li>
+        </ul>
     </div>
 </div>
 <lesson-dialog #dialog ></lesson-dialog>

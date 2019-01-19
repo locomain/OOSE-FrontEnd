@@ -32,7 +32,6 @@ class LessonPageComponent extends MaterialComponent{
      */
     onRender(): void{
         const parameters = braw.navigationEngine.params;
-        console.log(parameters);
         if(parameters.id){
             this.id = parameters.id;
             this.loadData();
@@ -59,22 +58,19 @@ class LessonPageComponent extends MaterialComponent{
      */
     async loadLesson(): Promise<any>{
         const result = await Endpoints.getLesson(this.id);
-        console.log(result);
         if(result){
             this.lesson = Lesson.fromWebservice(result,this.lesson);
         }
     }
 
     /**
-     * Load lessons from module id
+     * Load lessons from lesson id
      * @param id
      */
     async loadStudyGoals(): Promise<any>{
         const result = await Endpoints.getStudyGoalsFromLesson(this.id);
-        console.log(result);
         if(result){
             this.studyGoals = result.map(studyGoal=>StudyGoal.fromWebservice(studyGoal));
-            console.log(this.studyGoals);
         }
     }
 
