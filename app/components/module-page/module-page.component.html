@@ -2,16 +2,16 @@
     <h2><span [inner-text]="education.name"></span> <span [inner-text]="education.year"></span></h2>
     <h4 class="subtitle">Modules</h4>
     <ul class="mdc-list mdc-list--two-line">
-        <li (for)="let module of modules" class="mdc-list-item" tabindex="0">
-            <span class="mdc-list-item__text">
-              <span class="mdc-list-item__primary-text" [inner-h-t-m-l]="module.name"></span>
-              <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="module.name"></span>
+        <li (for)="let module of modules" [onclick]="goToLessons" [data-id]="module.id" class="mdc-list-item" tabindex="0">
+            <span class="mdc-list-item__text" [data-id]="module.id">
+              <span class="mdc-list-item__primary-text" [inner-h-t-m-l]="module.name" [data-id]="module.id"></span>
+              <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="module.description" [data-id]="module.id"></span>
             </span>
         </li>
     </ul>
-    <button class="mdc-fab" aria-label="Add" [style.background-color]="theme.secondaryColor">
+    <button class="mdc-fab" [onclick]="addModule" aria-label="Add" [style.background-color]="theme.secondaryColor">
         <span class="mdc-fab__icon material-icons">add</span>
     </button>
 </div>
-<person-dialog #dialog person="Student"></person-dialog>
+<module-dialog #dialog ></module-dialog>
 <page-loader (if)="loading"></page-loader>

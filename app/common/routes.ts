@@ -22,7 +22,7 @@ _.navigator([
         component:'<module-page></module-page>'
     },
     {
-        url:'/module/:id',
-        component:'<module-page></module-page>'
+        url:'/education/:educationid/module/:id',
+        component:'<lesson-page></lesson-page>'
     }
 ]);

@@ -1,28 +1,27 @@
 import {MaterialComponent} from "@/components/material.component";
 import {Module} from '@/models/module.model';
 import {Endpoints} from "@/communication/endpoints";
-import {Education} from "@/models/education.model";
-import {Student} from "@/models/student.model";
 import {ModuleDialog} from "@/components/module-dialog/module-dialog.component";
 import {Person} from "@/models/person.model";
 import {bind} from "@/decorators/bind";
+import {Lesson} from "@/models/lesson.model";
 
 @component({
-    tag:"module-page",
-    view:require("./module-page.component.html"),
-    style:require("./module-page.component.css")
+    tag:"lesson-page",
+    view:require("./lesson-page.component.html"),
+    style:require("./lesson-page.component.css")
 })
-class ModuleComponent extends MaterialComponent{
+class LessonPageComponent extends MaterialComponent{
 
     public loading = false;
-    public education: Education;
+    public module: Module;
     public dialog: ModuleDialog;
-    public modules: Module[] = [];
+    public lessons: Lesson[] = [];
     public id: number;
 
     constructor(){
         super();
-        this.education = new Education("Opleiding","");
+        this.module = new Module("Opleiding","","","");
     }
 
     /**
@@ -43,8 +42,8 @@ class ModuleComponent extends MaterialComponent{
      */
     async loadData() : Promise<any>{
         this.loading = true;
-        await this.loadEducation();
-        await this.loadModules();
+        await this.loadModule();
+        await this.loadLessons();
         this.loading = false;
     }
 
@@ -54,10 +53,10 @@ class ModuleComponent extends MaterialComponent{
      * @param {number} id
      * @returns {Promise<any>}
      */
-    async loadEducation(): Promise<any>{
+    async loadModule(): Promise<any>{
         const result = await Endpoints.getEducation(this.id);
         if(result){
-            Education.fromWebservice(result,this.education);
+            Module.fromWebservice(result,this.module);
         }
     }
 
@@ -65,18 +64,11 @@ class ModuleComponent extends MaterialComponent{
      * Load modules from education id
      * @param id
      */
-    async loadModules(): Promise<any>{
-        const result = await Endpoints.getModules(this.id);
+    async loadLessons(): Promise<any>{
+        const result = await Endpoints.getLessons();
         if(result){
-            this.modules = result.map(module=>Module.fromWebservice(module));
+            this.lessons = result.map(lesson=>Lesson.fromWebservice(lesson));
         }
-    }
-
-    @bind
-    goToLessons(e): void {
-        const element = e.srcElement;
-        //@ts-ignore
-        braw.navigate(`education/${this.id}/module/${element.dataId}`);
     }
 
 
@@ -85,9 +77,9 @@ class ModuleComponent extends MaterialComponent{
      * @param {Person} person
      */
     @bind
-    saveModules(module: Module): void{
+    saveLesson(lesson: Lesson){
         this.loading = true;
-        Endpoints.createModule(this.id,module).then(()=>this.loadData());
+        Endpoints.createModule(this.id,module).then(()=>this.loadLessons());
     }
 
     /**
@@ -95,7 +87,7 @@ class ModuleComponent extends MaterialComponent{
      */
     @bind
     addModule(): void{
-        this.dialog.open(this.saveModules);
+       // this.dialog.open(this.saveLesson);
     }
 
 }

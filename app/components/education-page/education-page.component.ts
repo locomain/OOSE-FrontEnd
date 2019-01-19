@@ -58,7 +58,7 @@ class EducationComponent extends MaterialComponent{
      *
      * @param e
      */
-    goTo(e:any){
+    goToModules(e:any){
         const element = e.srcElement;
         //@ts-ignore
         braw.navigate(`/education/${element.dataId}`);

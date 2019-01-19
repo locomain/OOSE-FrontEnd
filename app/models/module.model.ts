@@ -10,7 +10,7 @@ export class Module{
     public id: number;
 
     constructor(name: string, description: string,
-                startDate: string, endDate: string, id: number){
+                startDate: string, endDate: string, id: number = 0){
         this.name = name;
         this.description = description;
         this.startDate = startDate;

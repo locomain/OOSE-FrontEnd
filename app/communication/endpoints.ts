@@ -3,6 +3,7 @@ import {RequestService} from "@/communication/request-service";
 import {RequestType} from "./requesttype";
 import {Person} from "@/models/person.model";
 import {Education} from "@/models/education.model";
+import {Utils} from "@/utils/utils";
 
 export class Endpoints{
 
@@ -61,7 +62,6 @@ export class Endpoints{
         return this.webserviceRequest(`education/${educationId}`,RequestType.GET);
     }
 
-
     /**
      * Creates a education
      *
@@ -82,6 +82,26 @@ export class Endpoints{
     }
 
     /**
+     * Creates a module
+     *
+     * @param module
+     * @returns {Promise<any>}
+     */
+    static async createModule(educationId: number, module){
+        module["education_id"] = educationId;
+        return this.webserviceRequest(`module`,RequestType.POST,module);
+    }
+
+    /**
+     * Gets lessons
+     *
+     * @returns {Promise<any>}
+     */
+    static async getLessons(){
+        return this.webserviceRequest(`lessons`,RequestType.GET);
+    }
+
+    /**
      * Performs a webservice request
      *
      * @param {string} endpoint
@@ -90,6 +110,7 @@ export class Endpoints{
      * @returns {Promise<any>}
      */
     static async webserviceRequest(endpoint: string, type: RequestType, data: object = {}): Promise<any>{
+        Utils.keysToLowerCase(data);
         return RequestService.request(`${Config.WEBSERVICE_URL}/${endpoint}`,type,data);
     }
 }
