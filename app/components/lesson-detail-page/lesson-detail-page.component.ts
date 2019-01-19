@@ -1,27 +1,30 @@
 import {MaterialComponent} from "@/components/material.component";
 import {Module} from '@/models/module.model';
 import {Endpoints} from "@/communication/endpoints";
+import {ModuleDialog} from "@/components/dialogs/module-dialog/module-dialog.component";
+import {Person} from "@/models/person.model";
 import {bind} from "@/decorators/bind";
 import {Lesson} from "@/models/lesson.model";
+import {Utils} from "@/utils/utils";
 import {LessonDialog} from "@/components/dialogs/lesson-dialog/lesson-dialog.component";
+import {StudyGoal} from "@/models/studygoal.model";
 
 @component({
-    tag:"lesson-page",
-    view:require("./lesson-page.component.html"),
-    style:require("./lesson-page.component.css")
+    tag:"lesson-detail-page",
+    view:require("./lesson-detail-page.component.html"),
+    style:require("./lesson-detail-page.component.css")
 })
 class LessonPageComponent extends MaterialComponent{
 
     public loading = false;
-    public module: Module;
+    public lesson: Lesson;
     public dialog: LessonDialog;
-    public lessons: Lesson[] = [];
+    public studyGoals: StudyGoal[] = [];
     public id: number;
-    private educationId: number;
 
     constructor(){
         super();
-        this.module = new Module("Module","","","");
+        this.lesson = new Lesson("Les","","");
     }
 
     /**
@@ -30,8 +33,7 @@ class LessonPageComponent extends MaterialComponent{
     onRender(): void{
         const parameters = braw.navigationEngine.params;
         console.log(parameters);
-        if(parameters){
-            this.educationId = parameters.educationid;
+        if(parameters.id){
             this.id = parameters.id;
             this.loadData();
         }
@@ -44,21 +46,22 @@ class LessonPageComponent extends MaterialComponent{
      */
     async loadData() : Promise<any>{
         this.loading = true;
-        await this.loadModule();
-        await this.loadLessons();
+        await this.loadLesson();
+        await this.loadStudyGoals();
         this.loading = false;
     }
 
     /**
-     * Loads the education
+     * Loads the lesson
      *
      * @param {number} id
      * @returns {Promise<any>}
      */
-    async loadModule(): Promise<any>{
-        const result = await Endpoints.getModule(this.id);
+    async loadLesson(): Promise<any>{
+        const result = await Endpoints.getLesson(this.id);
+        console.log(result);
         if(result){
-            this.module = Module.fromWebservice(result,this.module);
+            this.lesson = Lesson.fromWebservice(result,this.lesson);
         }
     }
 
@@ -66,12 +69,15 @@ class LessonPageComponent extends MaterialComponent{
      * Load lessons from module id
      * @param id
      */
-    async loadLessons(): Promise<any>{
-        const result = await Endpoints.getLessons(this.id);
+    async loadStudyGoals(): Promise<any>{
+        const result = await Endpoints.getStudyGoalsFromLesson(this.id);
+        console.log(result);
         if(result){
-            this.lessons = result.map(lesson=>Lesson.fromWebservice(lesson));
+            this.studyGoals = result.map(studyGoal=>StudyGoal.fromWebservice(studyGoal));
+            console.log(this.studyGoals);
         }
     }
+
 
     /**
      * Saves/post a lesson to the api
@@ -80,26 +86,15 @@ class LessonPageComponent extends MaterialComponent{
     @bind
     saveLesson(lesson: Lesson){
         this.loading = true;
-        Endpoints.createLesson(this.id,lesson).then(()=>this.loadData());
+        //Endpoints.createLesson(this.id,lesson).then(()=>this.loadData());
     }
 
     /**
      * Opens the create student dialog to create a student
      */
     @bind
-    addLesson(): void{
-        this.dialog.open(this.saveLesson);
-    }
-
-    /**
-     * Navigates to the lesson detail page
-     * @param e
-     */
-    @bind
-    goToLessonDetail(e): void {
-        const element = e.srcElement;
-        //@ts-ignore
-        braw.navigate(`education/${this.educationId}/module/${this.id}/lesson/${element.dataId}`);
+    addGoal(): void{
+        //this.dialog.open(this.saveLesson);
     }
 
 }

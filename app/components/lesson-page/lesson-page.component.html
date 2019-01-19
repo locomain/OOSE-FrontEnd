@@ -2,10 +2,10 @@
     <div class="container">
         <h2>Lessen</h2>
         <ul class="mdc-list mdc-list--two-line">
-            <li (for)="let lesson of lessons" class="mdc-list-item" tabindex="0">
-            <span class="mdc-list-item__text">
-              <span class="mdc-list-item__primary-text" [inner-h-t-m-l]="lesson.name"></span>
-              <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="lesson.date"></span>
+            <li (for)="let lesson of lessons" [onclick]="goToLessonDetail" [data-id]="lesson.id" class="mdc-list-item" tabindex="0">
+            <span class="mdc-list-item__text" [data-id]="lesson.id">
+              <span class="mdc-list-item__primary-text" [inner-h-t-m-l]="lesson.name" [data-id]="lesson.id"></span>
+              <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="lesson.date" [data-id]="lesson.id"></span>
             </span>
             </li>
         </ul>

@@ -69,6 +69,7 @@ export class LessonDialog extends MaterialComponent implements IDialog{
     public clear(): void{
         this.name.clear();
         this.editor.value = "";
+        this.previewData = "";
         this.date.clear();
     }
 
@@ -86,6 +87,7 @@ export class LessonDialog extends MaterialComponent implements IDialog{
      */
     @bind
     public save(): void{
+        this.clear();
         this.envokeCallback();
         this.instance.close();
     }

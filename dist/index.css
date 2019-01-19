@@ -23,5 +23,12 @@ body {
 .html-viewer{
     padding: 4px;
     min-height: 400px;
+    overflow:scroll;
     border: 1px solid #00000026;
+}
+
+.pane-html-viewer{
+    border-top: 1px solid #00000014;
+    position: relative;
+    padding: 16px;
 }

@@ -24,5 +24,9 @@ _.navigator([
     {
         url:'/education/:educationid/module/:id',
         component:'<lesson-page></lesson-page>'
+    },
+    {
+        url:'/education/:educationid/module/:moduleId/lesson/:id',
+        component:'<lesson-detail-page></lesson-detail-page>'
     }
 ]);

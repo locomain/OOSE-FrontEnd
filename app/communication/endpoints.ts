@@ -133,6 +133,26 @@ export class Endpoints{
     }
 
     /**
+     * Gets study goals from a lesson
+     *
+     * @param lessonId
+     * @returns {Promise<any>}
+     */
+    static async getStudyGoalsFromLesson(lessonId){
+        return this.webserviceRequest(`class/${lessonId}/goals`,RequestType.GET);
+    }
+
+    /**
+     * Gets study goals from a lesson
+     *
+     * @param lessonId
+     * @returns {Promise<any>}
+     */
+    static async getStudyGoalsFromModule(moduleId){
+        return this.webserviceRequest(`module/${moduleId}/goals`,RequestType.GET);
+    }
+
+    /**
      * Performs a webservice request
      *
      * @param {string} endpoint

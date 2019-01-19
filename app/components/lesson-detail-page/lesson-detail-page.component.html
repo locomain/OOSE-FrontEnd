@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <div class="container">
+        <h2>Lessen</h2>
+        <ul class="mdc-list mdc-list--two-line">
+            <li (for)="let goal of studyGoals" class="mdc-list-item" tabindex="0">
+            <span class="mdc-list-item__text">
+              <span class="mdc-list-item__primary-text" [inner-h-t-m-l]="goal.name"></span>
+              <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="goal.description"></span>
+            </span>
+            </li>
+        </ul>
+    </div>
+    <div class="container container-right">
+        <h2><span [inner-text]="lesson.name"></span></h2>
+        <h4  class="subtitle" [inner-text]="lesson.date"></h4>
+        <div class="pane-html-viewer" [inner-h-t-m-l]="lesson.content"><div>
+        <button class="mdc-fab" [onclick]="addGoal" aria-label="Add" [style.background-color]="theme.secondaryColor">
+            <span class="mdc-fab__icon material-icons">add</span>
+        </button>
+    </div>
+</div>
+<lesson-dialog #dialog></lesson-dialog>
+<page-loader (if)="loading"></page-loader>
