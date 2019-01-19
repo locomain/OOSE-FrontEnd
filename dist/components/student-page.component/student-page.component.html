@@ -4,7 +4,7 @@
         <li (for)="let student of students" class="mdc-list-item" tabindex="0">
             <span class="mdc-list-item__text">
               <span class="mdc-list-item__primary-text" [inner-h-t-m-l]="student.name"></span>
-              <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="student.name"></span>
+              <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="student.email"></span>
             </span>
         </li>
     </ul>
@@ -12,4 +12,5 @@
         <span class="mdc-fab__icon material-icons">add</span>
     </button>
 </div>
-<person-dialog #dialog ></person-dialog>
+<person-dialog #dialog person="Student"></person-dialog>
+<page-loader (if)="loading"></page-loader>

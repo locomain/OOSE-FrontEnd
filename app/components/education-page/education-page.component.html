@@ -1,10 +1,10 @@
 <div class="container">
     <h2>Opleidingen</h2>
     <ul class="mdc-list mdc-list--two-line">
-        <li (for)="let education of educations" [onclick]="goTo" [data-model]="education.name" class="mdc-list-item" tabindex="0">
-            <span class="mdc-list-item__text" [data-model]="education.name">
-              <span class="mdc-list-item__primary-text" [data-model]="education.name" [inner-h-t-m-l]="education.name"></span>
-              <span class="mdc-list-item__secondary-text" [data-model]="education.name" [inner-h-t-m-l]="education.description"></span>
+        <li (for)="let education of educations" [onclick]="goTo" [data-id]="education.id" class="mdc-list-item" tabindex="0">
+            <span class="mdc-list-item__text" [data-id]="education.id">
+              <span class="mdc-list-item__primary-text" [data-id]="education.id" [inner-h-t-m-l]="education.name"></span>
+              <span class="mdc-list-item__secondary-text" [data-id]="education.id" [inner-h-t-m-l]="education.year"></span>
             </span>
         </li>
     </ul>
@@ -12,3 +12,5 @@
         <span class="mdc-fab__icon material-icons">add</span>
     </button>
 </div>
+<person-dialog #dialog person="Student"></person-dialog>
+<page-loader (if)="loading"></page-loader>

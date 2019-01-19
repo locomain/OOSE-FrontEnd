@@ -1,6 +1,8 @@
 import Config from "../common/config";
 import {RequestService} from "@/communication/request-service";
 import {RequestType} from "./requesttype";
+import {Person} from "@/models/person.model";
+import {Education} from "@/models/education.model";
 
 export class Endpoints{
 
@@ -14,17 +16,43 @@ export class Endpoints{
     }
 
     /**
-     * Gets modules
+     * Creates a student
      *
-     * @param educationId
      * @returns {Promise<any>}
      */
-    static async getModules(educationId){
-        return this.webserviceRequest(``,RequestType.GET);
+    static async createStudent(person: Person){
+        return this.webserviceRequest("student",RequestType.POST, person);
     }
 
     /**
-     * Gets modules
+     * Get teachers
+     *
+     * @returns {Promise<any>}
+     */
+    static async getTeachers(){
+        return this.webserviceRequest("teachers",RequestType.GET);
+    }
+
+    /**
+     * Creates a teacher
+     *
+     * @returns {Promise<any>}
+     */
+    static async createTeacher(person: Person){
+        return this.webserviceRequest("teacher",RequestType.POST, person);
+    }
+
+    /**
+     * Get educations
+     *
+     * @returns {Promise<any>}
+     */
+    static async getEducations(){
+        return this.webserviceRequest("educations",RequestType.GET);
+    }
+
+    /**
+     * Gets education
      *
      * @param educationId
      * @returns {Promise<any>}
@@ -34,6 +62,24 @@ export class Endpoints{
     }
 
 
+    /**
+     * Creates a education
+     *
+     * @returns {Promise<any>}
+     */
+    static async createEducation(education: Education){
+        return this.webserviceRequest("education",RequestType.POST, education);
+    }
+
+    /**
+     * Gets modules
+     *
+     * @param educationId
+     * @returns {Promise<any>}
+     */
+    static async getModules(educationId){
+        return this.webserviceRequest(`modules`,RequestType.GET);
+    }
 
     /**
      * Performs a webservice request

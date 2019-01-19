@@ -1,11 +1,27 @@
+import {Person} from "@/models/person.model";
+
 /**
  * Definition of a student object in OOSE
  */
-export class Teacher {
+export class Teacher extends Person {
 
-    public name: string;
+    protected id: number;
 
-    constructor(name: string){
-        this.name = name;
+    constructor(firstname:string, lastname:string, email:string, id:number){
+        super(firstname,lastname,email);
+        this.id = id;
+    }
+
+    /**
+     * Creates a student from the webservice student structure
+     * @param obj
+     */
+    static fromWebservice(obj:any): Teacher{
+        return new Teacher(
+            obj.persoon.voornaam,
+            obj.persoon.achternaam,
+            obj.persoon.emailadres,
+            obj.id
+        )
     }
 }

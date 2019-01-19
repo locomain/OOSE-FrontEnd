@@ -4,11 +4,13 @@
         <li (for)="let teacher of teachers" class="mdc-list-item" tabindex="0">
             <span class="mdc-list-item__text">
               <span class="mdc-list-item__primary-text" [inner-h-t-m-l]="teacher.name"></span>
-              <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="teacher.name"></span>
+              <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="teacher.email"></span>
             </span>
         </li>
     </ul>
-    <button class="mdc-fab" aria-label="Add" [style.background-color]="theme.secondaryColor">
+    <button [onclick]="addTeacher" class="mdc-fab" aria-label="Add" [style.background-color]="theme.secondaryColor">
         <span class="mdc-fab__icon material-icons">add</span>
     </button>
 </div>
+<person-dialog #dialog person="Leraar"></person-dialog>
+<page-loader (if)="loading"></page-loader>

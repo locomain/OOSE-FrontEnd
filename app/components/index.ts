@@ -9,3 +9,5 @@ import '@/components/student-page/student-page.component';
 import '@/components/teacher-page/teacher-page.component';
 import '@/components/module-page/module-page.component';
 import '@/components/person-dialog/person-dialog.component';
+import '@/components/input-field/input-field.component';
+import '@/components/page-loader/page-loader.component';
