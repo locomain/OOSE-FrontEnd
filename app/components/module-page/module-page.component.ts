@@ -3,7 +3,7 @@ import {Module} from '@/models/module.model';
 import {Endpoints} from "@/communication/endpoints";
 import {Education} from "@/models/education.model";
 import {Student} from "@/models/student.model";
-import {ModuleDialog} from "@/components/module-dialog/module-dialog.component";
+import {ModuleDialog} from "@/components/dialogs/module-dialog/module-dialog.component";
 import {Person} from "@/models/person.model";
 import {bind} from "@/decorators/bind";
 

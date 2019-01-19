@@ -1,7 +1,7 @@
 import {MaterialComponent} from "@/components/material.component";
 import {Student} from "@/models/student.model";
 import {bind} from "@/decorators/bind";
-import {PersonDialog} from "@/components/person-dialog/person-dialog.component";
+import {PersonDialog} from "@/components/dialogs/person-dialog/person-dialog.component";
 import {Endpoints} from "@/communication/endpoints";
 import {Person} from "@/models/person.model";
 

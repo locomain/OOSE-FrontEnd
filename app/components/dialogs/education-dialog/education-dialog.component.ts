@@ -1,22 +1,19 @@
-import {MaterialComponent} from "@/components/material.component";
-import bind from "@/decorators/bind";
+import {IDialog} from "@/interfaces/dialog.interface";
 import {InputField} from "@/components/input-field/input-field.component";
 import {Education} from "@/models/education.model";
-import {IDialog} from "@/interfaces/dialog.interface";
-import {Module} from "@/models/module.model";
+import {MaterialComponent} from "@/components/material.component";
+import bind from "@/decorators/bind";
 
 @component({
-    tag:"module-dialog",
-    view:require("./module-dialog.component.html"),
-    style:require("./module-dialog.component.css")
+    tag:"education-dialog",
+    view:require("./education-dialog.component.html"),
+    style:require("./education-dialog.component.css")
 })
-export class ModuleDialog extends MaterialComponent implements IDialog{
+export class EducationDialog extends MaterialComponent implements IDialog{
 
     private dialog: HTMLElement;
     private name: InputField;
-    private description: InputField;
-    private startdate: InputField;
-    private enddate: InputField;
+    private year: InputField;
 
     private instance: any;
     private callback:(formData:object)=>void;
@@ -26,7 +23,7 @@ export class ModuleDialog extends MaterialComponent implements IDialog{
      * @param {(formData: object) => void} callback
      */
     @bind
-    public open(callback:(module:Module)=>void): void {
+    public open(callback:(education:Education)=>void): void {
         this.callback = callback;
         this.instance = new window.mdc.dialog.MDCDialog(this.dialog);
         this.instance.open();
@@ -38,11 +35,9 @@ export class ModuleDialog extends MaterialComponent implements IDialog{
     public envokeCallback(){
         if(!!this.callback){
             this.callback(
-                new Module(
+                new Education(
                     this.name.value,
-                    this.description.value,
-                    this.startdate.value,
-                    this.enddate.value
+                    this.year.value
                 )
             );
             this.callback = null;
@@ -54,9 +49,7 @@ export class ModuleDialog extends MaterialComponent implements IDialog{
      */
     public clear(): void{
         this.name.clear();
-        this.description.clear();
-        this.startdate.clear();
-        this.enddate.clear();
+        this.year.clear();
     }
 
     /**

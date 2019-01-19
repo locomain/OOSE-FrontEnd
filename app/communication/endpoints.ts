@@ -72,13 +72,23 @@ export class Endpoints{
     }
 
     /**
-     * Gets modules
+     * Gets education modules
      *
      * @param educationId
      * @returns {Promise<any>}
      */
     static async getModules(educationId){
         return this.webserviceRequest(`modules`,RequestType.GET);
+    }
+
+    /**
+     * Get module from id
+     *
+     * @param id
+     * @returns {Promise<any>}
+     */
+    static async getModule(id){
+        return this.webserviceRequest(`module/${id}`,RequestType.GET);
     }
 
     /**
@@ -97,8 +107,8 @@ export class Endpoints{
      *
      * @returns {Promise<any>}
      */
-    static async getLessons(){
-        return this.webserviceRequest(`lessons`,RequestType.GET);
+    static async getLessons(moduleId){
+        return this.webserviceRequest(`module/${moduleId}/classes`,RequestType.GET);
     }
 
     /**

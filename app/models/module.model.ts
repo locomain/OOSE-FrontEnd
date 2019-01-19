@@ -1,6 +1,8 @@
 /**
  * Definition of a education object in OOSE
  */
+import {Utils} from "@/utils/utils";
+
 export class Module{
 
     public name: string;
@@ -26,8 +28,8 @@ export class Module{
         if(!prefab)return new Module(obj.naam,obj.beschrijving,obj.startdatum,obj.einddatum,obj.id);
         prefab.name = obj.naam;
         prefab.description = obj.beschrijving;
-        prefab.startDate = obj.startdatum;
-        prefab.endDate = obj.einddatum;
+        prefab.startDate = Utils.dateToReadableDate(obj.startdatum);
+        prefab.endDate = Utils.dateToReadableDate(obj.einddatum);
         prefab.id = obj.id;
         return prefab;
     }

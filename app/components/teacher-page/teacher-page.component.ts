@@ -4,7 +4,7 @@ import {Endpoints} from "@/communication/endpoints";
 import {bind} from "@/decorators/bind";
 import {Person} from "@/models/person.model";
 import {Student} from "@/models/student.model";
-import {PersonDialog} from "@/components/person-dialog/person-dialog.component";
+import {PersonDialog} from "@/components/dialogs/person-dialog/person-dialog.component";
 
 @component({
     tag:"teacher-page",

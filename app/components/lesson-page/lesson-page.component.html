@@ -1,17 +1,23 @@
-<div class="container">
-    <h2><span [inner-text]="module.name"></span> <span [inner-text]="module.description"></span></h2>
-    <h4 class="subtitle">Lessen</h4>
-    <ul class="mdc-list mdc-list--two-line">
-        <li (for)="let lesson of lessons" class="mdc-list-item" tabindex="0">
+<div class="wrapper">
+    <div class="container">
+        <h2>Lessen</h2>
+        <ul class="mdc-list mdc-list--two-line">
+            <li (for)="let lesson of lessons" class="mdc-list-item" tabindex="0">
             <span class="mdc-list-item__text">
               <span class="mdc-list-item__primary-text" [inner-h-t-m-l]="lesson.name"></span>
-              <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="lesson.name"></span>
+              <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="lesson.date"></span>
             </span>
-        </li>
-    </ul>
-    <button class="mdc-fab" [onclick]="addLesson" aria-label="Add" [style.background-color]="theme.secondaryColor">
-        <span class="mdc-fab__icon material-icons">add</span>
-    </button>
+            </li>
+        </ul>
+        <button class="mdc-fab" [onclick]="addLesson" aria-label="Add" [style.background-color]="theme.secondaryColor">
+            <span class="mdc-fab__icon material-icons">add</span>
+        </button>
+    </div>
+    <div class="container container-right">
+        <h2><span [inner-text]="module.name"></span></h2>
+        <h4  class="subtitle"><span [inner-text]="module.startDate"></span> - <span [inner-text]="module.endDate"></span></h4>
+        <p class="subtitle" [inner-text]="module.description"></p>
+    </div>
 </div>
 <module-dialog #dialog ></module-dialog>
 <page-loader (if)="loading"></page-loader>

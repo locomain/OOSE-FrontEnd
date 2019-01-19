@@ -5,7 +5,7 @@ export class Utils{
      *
      * @param data
      */
-    static keysToLowerCase(data){
+    static keysToLowerCase(data): void{
         if(data){
             for(const key in data){
                 if(data.hasOwnProperty(key)){
@@ -20,12 +20,23 @@ export class Utils{
     }
 
     /**
+     * Converts the database date(time) to a readable date
+     *
+     * @param {string} dateString
+     * @returns {string}
+     */
+    static dateToReadableDate(dateString: string): string{
+        let parts = dateString.split(" ");
+        return parts[0] || dateString;
+    }
+
+    /**
      * Checks if a string has a uppercase char
      *
      * @param {string} string
      * @returns {boolean}
      */
-    static hasUpperCaseChars(string: string){
+    static hasUpperCaseChars(string: string): boolean{
         return string != string.toLowerCase();
     }
 }

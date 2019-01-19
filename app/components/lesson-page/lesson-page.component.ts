@@ -1,10 +1,11 @@
 import {MaterialComponent} from "@/components/material.component";
 import {Module} from '@/models/module.model';
 import {Endpoints} from "@/communication/endpoints";
-import {ModuleDialog} from "@/components/module-dialog/module-dialog.component";
+import {ModuleDialog} from "@/components/dialogs/module-dialog/module-dialog.component";
 import {Person} from "@/models/person.model";
 import {bind} from "@/decorators/bind";
 import {Lesson} from "@/models/lesson.model";
+import {Utils} from "@/utils/utils";
 
 @component({
     tag:"lesson-page",
@@ -21,7 +22,7 @@ class LessonPageComponent extends MaterialComponent{
 
     constructor(){
         super();
-        this.module = new Module("Opleiding","","","");
+        this.module = new Module("Module","","","");
     }
 
     /**
@@ -29,6 +30,7 @@ class LessonPageComponent extends MaterialComponent{
      */
     onRender(): void{
         const parameters = braw.navigationEngine.params;
+        console.log(parameters);
         if(parameters.id){
             this.id = parameters.id;
             this.loadData();
@@ -54,9 +56,9 @@ class LessonPageComponent extends MaterialComponent{
      * @returns {Promise<any>}
      */
     async loadModule(): Promise<any>{
-        const result = await Endpoints.getEducation(this.id);
+        const result = await Endpoints.getModule(this.id);
         if(result){
-            Module.fromWebservice(result,this.module);
+            this.module = Module.fromWebservice(result,this.module);
         }
     }
 
@@ -65,7 +67,8 @@ class LessonPageComponent extends MaterialComponent{
      * @param id
      */
     async loadLessons(): Promise<any>{
-        const result = await Endpoints.getLessons();
+        const result = await Endpoints.getLessons(this.id);
+        console.log(result);
         if(result){
             this.lessons = result.map(lesson=>Lesson.fromWebservice(lesson));
         }
