@@ -27,7 +27,11 @@ export class Utils{
      */
     static dateToReadableDate(dateString: string): string{
         let parts = dateString.split(" ");
-        return parts[0] || dateString;
+        if(parts.length<1)return dateString;
+        let date = parts[0];
+        let dateParts = date.split("-");
+        if(dateParts.length<3)return date;
+        return `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
     }
 
     /**
