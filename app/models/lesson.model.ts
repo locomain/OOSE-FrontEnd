@@ -24,9 +24,9 @@ export class Lesson{
      */
     static fromWebservice(obj: any, prefab: Lesson = null): Lesson{
         const date = Utils.dateToReadableDate(obj.datum);
-        if(!prefab)return new Lesson(obj.naam,obj.lesstof,date,obj.id);
+        if(!prefab)return new Lesson(obj.naam,obj.document.inhoud,date,obj.id);
         prefab.name = obj.naam;
-        prefab.content = obj.lesstof;
+        prefab.content = obj.document.inhoud;
         prefab.date = date;
         prefab.id = obj.id;
         return prefab;

@@ -16,7 +16,7 @@
     <div class="container container-right">
         <h2><span [inner-text]="lesson.name"></span></h2>
         <h4  class="subtitle" [inner-text]="lesson.date"></h4>
-        <div class="pane-html-viewer" [inner-h-t-m-l]="lesson.content"></div>
+        <div class="border-top"></div>
         <ul class="mdc-list mdc-list--two-line">
             <h4 class="goal-title">Uitvoerende leraren</h4>
             <button class="goal-button mdc-button mdc-button--unelevated" [onclick]="addTeacher">
@@ -24,11 +24,16 @@
             </button>
             <li (for)="let teacher of teachers" class="mdc-list-item" tabindex="0">
                 <span class="mdc-list-item__text">
-                  <span class="mdc-list-item__primary-text" [inner-text]="teachers.name"></span>
-                  <span class="mdc-list-item__secondary-text" [inner-text]="teachers.email"></span>
+                  <span class="mdc-list-item__primary-text" [inner-text]="teacher.name"></span>
+                  <span class="mdc-list-item__secondary-text" [inner-text]="teacher.email"></span>
                 </span>
             </li>
         </ul>
+        <br>
+        <br>
+        <div class="border-top"></div>
+        <h4 class="goal-title">Lesstof</h4>
+        <div class="pane-html-viewer" [inner-h-t-m-l]="lesson.content"></div>
     </div>
 </div>
 <person-selection-dialog #persondialog topic="leraar" [topic-id]="id" ></person-selection-dialog>

@@ -63,7 +63,7 @@ export class PersonSelectionDialog extends MaterialComponent implements IDialog{
             if(result)
                 this.persons = result.map(person=>Student.fromWebservice(person));
         } else if(this.personType=="leraar"){
-            result = await Endpoints.getStudentsNotInModule(this.id);
+            result = await Endpoints.getTeachersNotInLesson(this.id);
             if(result)
                 this.persons = result.map(person=>Teacher.fromWebservice(person));
         }

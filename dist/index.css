@@ -32,7 +32,6 @@ body {
 }
 
 .pane-html-viewer{
-    border-top: 1px solid #00000014;
     position: relative;
     padding: 16px;
 }

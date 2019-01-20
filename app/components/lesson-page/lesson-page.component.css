@@ -22,7 +22,7 @@
 .container{
     position: absolute;
     overflow-y:auto;
-    width: 50%;
+    width: 30%;
     height:100%;
     top:0;
     left:0;
@@ -32,10 +32,10 @@
 .container-right{
     position: absolute;
     overflow-y:auto;
-    width: 50%;
+    width: 70%!important;
     height:100%;
     top:0;
-    left:50%!important;
+    left:30%!important;
     box-sizing: border-box;
     border-left: #00000014 solid 1px;
 }

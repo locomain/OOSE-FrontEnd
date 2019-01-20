@@ -68,6 +68,36 @@ export class Endpoints{
     }
 
     /**
+     * Get teachers in a lesson
+     *
+     * @returns {Promise<any>}
+     */
+    static async getTeachersInLesson(lessonId){
+        return this.webserviceRequest(`class/${lessonId}/teacher`,RequestType.GET);
+    }
+
+    /**
+     * Get teachers not in the lesson
+     *
+     * @returns {Promise<any>}
+     */
+    static async getTeachersNotInLesson(lessonId){
+        return this.webserviceRequest(`class/${lessonId}/unused_teachers`,RequestType.GET);
+    }
+
+    /**
+     * Adds teacher to lesson
+     *
+     * @param lessonId
+     * @returns {Promise<any>}
+     */
+    static async addTeacherToLessen(lessonId,teacherId){
+        return this.webserviceRequest(`class/${lessonId}/teacher`,RequestType.POST,{
+            teacher_id:teacherId
+        });
+    }
+
+    /**
      * Creates a teacher
      *
      * @returns {Promise<any>}

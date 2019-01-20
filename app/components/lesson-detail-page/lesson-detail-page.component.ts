@@ -10,6 +10,7 @@ import {LessonDialog} from "@/components/dialogs/lesson-dialog/lesson-dialog.com
 import {StudyGoal} from "@/models/studygoal.model";
 import {StudyGoalSelectionDialog} from "@/components/dialogs/study-goal-selection-dialog/study-goal-selection-dialog.component";
 import {PersonSelectionDialog} from "@/components/dialogs/person-selection-dialog/person-selection-dialog.component";
+import {Teacher} from "@/models/teacher.model";
 
 @component({
     tag:"lesson-detail-page",
@@ -21,6 +22,7 @@ class LessonPageComponent extends MaterialComponent{
     public loading = false;
     public lesson: Lesson;
     public persondialog: PersonSelectionDialog;
+    public teachers: Teacher[] = [];
     public dialog: StudyGoalSelectionDialog;
     public studyGoals: StudyGoal[] = [];
     public id: number;
@@ -50,7 +52,20 @@ class LessonPageComponent extends MaterialComponent{
         this.loading = true;
         await this.loadLesson();
         await this.loadStudyGoals();
+        await this.loadTeachers();
         this.loading = false;
+    }
+
+    /**
+     * Loads teachers for this lesson
+     *
+     * @returns {Promise<any>}
+     */
+    async loadTeachers(): Promise<any>{
+        const result = await Endpoints.getTeachersInLesson(this.id);
+        if(result){
+            this.teachers = result.map(teacher=>Teacher.fromWebservice(teacher));
+        }
     }
 
     /**
@@ -105,7 +120,7 @@ class LessonPageComponent extends MaterialComponent{
     @bind
     saveTeachers(id: number){
         this.loading = true;
-        Endpoints.addStudentToModule(this.id,id).then(()=>this.loadData());
+        Endpoints.addTeacherToLessen(this.id,id).then(()=>this.loadData());
     }
 
     /**
