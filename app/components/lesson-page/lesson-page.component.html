@@ -19,7 +19,7 @@
         <p class="subtitle" [inner-text]="module.description"></p>
         <div class="border-top"></div>
         <h4 class="goal-title">Leerdoelen</h4>
-        <button class="goal-button mdc-button mdc-button--unelevated">
+        <button class="goal-button mdc-button mdc-button--unelevated" [onclick]="addGoal">
             <span class="mdc-button__label">Toevoegen</span>
         </button>
         <ul class="mdc-list mdc-list--two-line">
@@ -40,4 +40,5 @@
     </div>
 </div>
 <lesson-dialog #dialog ></lesson-dialog>
+<study-goal-dialog #goaldialog ></study-goal-dialog>
 <page-loader (if)="loading"></page-loader>

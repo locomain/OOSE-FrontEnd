@@ -5,6 +5,7 @@ import {bind} from "@/decorators/bind";
 import {Lesson} from "@/models/lesson.model";
 import {LessonDialog} from "@/components/dialogs/lesson-dialog/lesson-dialog.component";
 import {StudyGoal} from "@/models/studygoal.model";
+import {StudyGoalDialog} from "@/components/dialogs/study-goal-dialog/study-goal-dialog.component";
 
 @component({
     tag:"lesson-page",
@@ -16,6 +17,7 @@ class LessonPageComponent extends MaterialComponent{
     public loading = false;
     public module: Module;
     public dialog: LessonDialog;
+    public goaldialog: StudyGoalDialog;
     public lessons: Lesson[] = [];
     public usedStudyGoals: StudyGoal[] = [];
     public unusedStudyGoals: StudyGoal[] = [];
@@ -105,6 +107,17 @@ class LessonPageComponent extends MaterialComponent{
     @bind
     addLesson(): void{
         this.dialog.open(this.saveLesson);
+    }
+
+    @bind
+    saveGoal(goal: StudyGoal){
+        this.loading = true;
+        Endpoints.createStudyGoal(this.id,goal).then(()=>this.loadData());
+    }
+
+    @bind
+    addGoal(){
+        this.goaldialog.open(this.saveGoal)
     }
 
     /**

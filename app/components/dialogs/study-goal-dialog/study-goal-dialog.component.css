@@ -1,0 +1,11 @@
+.mdc-text-field{
+    width: 100%;
+}
+
+input-field{
+    margin-top:16px;
+}
+
+.no-click-backdrop {
+    pointer-events: none;
+}
