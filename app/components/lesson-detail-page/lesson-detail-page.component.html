@@ -9,15 +9,15 @@
                 </span>
             </li>
         </ul>
+        <button class="mdc-fab" [onclick]="addGoal" aria-label="Add" [style.background-color]="theme.secondaryColor">
+            <span class="mdc-fab__icon material-icons">add</span>
+        </button>
     </div>
     <div class="container container-right">
         <h2><span [inner-text]="lesson.name"></span></h2>
         <h4  class="subtitle" [inner-text]="lesson.date"></h4>
         <div class="pane-html-viewer" [inner-h-t-m-l]="lesson.content"></div>
-        <button class="mdc-fab" [onclick]="addGoal" aria-label="Add" [style.background-color]="theme.secondaryColor">
-            <span class="mdc-fab__icon material-icons">add</span>
-        </button>
     </div>
 </div>
-<lesson-dialog #dialog></lesson-dialog>
+<study-goal-selection-dialog [module]="id" #dialog></study-goal-selection-dialog>
 <page-loader (if)="loading" ></page-loader>

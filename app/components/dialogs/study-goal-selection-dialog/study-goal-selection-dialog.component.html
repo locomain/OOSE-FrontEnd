@@ -1,0 +1,24 @@
+<div #dialog class="mdc-dialog mdc-dialog--scrollable" role="alertdialog"
+     aria-modal="true" aria-labelledby="mdc-dialog-with-list-label" aria-describedby="mdc-dialog-with-list-description">
+    <div class="mdc-dialog__scrim no-click-backdrop"></div>
+    <div class="mdc-dialog__container">
+        <div class="mdc-dialog__surface">
+            <h2 class="mdc-dialog__title">Leerdoel selecteren</h2>
+            <section id="mdc-dialog-with-list-description" class="mdc-dialog__content">
+                <ul class="mdc-list mdc-list--two-line">
+                    <li (for)="let goal of goals" class="mdc-list-item" [onclick]="select" [data]="goal.id" tabindex="0">
+                        <span class="mdc-list-item__text" [data]="goal" >
+                          <span class="mdc-list-item__primary-text" [inner-h-t-m-l]="goal.name" [data]="goal.id" ></span>
+                          <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="goal.description" [data]="goal.id" ></span>
+                        </span>
+                    </li>
+                </ul>
+            </section>
+            <footer class="mdc-dialog__actions">
+                <button type="button" [onclick]="cancel" [style.color]="theme.darkColor" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" data-mdc-dialog-action="close">
+                    Annuleren
+                </button>
+            </footer>
+        </div>
+    </div>
+</div>

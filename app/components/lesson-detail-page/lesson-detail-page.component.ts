@@ -8,6 +8,7 @@ import {Lesson} from "@/models/lesson.model";
 import {Utils} from "@/utils/utils";
 import {LessonDialog} from "@/components/dialogs/lesson-dialog/lesson-dialog.component";
 import {StudyGoal} from "@/models/studygoal.model";
+import {StudyGoalSelectionDialog} from "@/components/dialogs/study-goal-selection-dialog/study-goal-selection-dialog.component";
 
 @component({
     tag:"lesson-detail-page",
@@ -18,7 +19,7 @@ class LessonPageComponent extends MaterialComponent{
 
     public loading = false;
     public lesson: Lesson;
-    public dialog: LessonDialog;
+    public dialog: StudyGoalSelectionDialog;
     public studyGoals: StudyGoal[] = [];
     public id: number;
 
@@ -76,13 +77,14 @@ class LessonPageComponent extends MaterialComponent{
 
 
     /**
-     * Saves/post a lesson to the api
+     * Adds a studygoal to the lesson
+     *
      * @param {Lesson} lesson
      */
     @bind
-    saveLesson(lesson: Lesson){
+    saveGoal(goal: number){
         this.loading = true;
-        //Endpoints.createLesson(this.id,lesson).then(()=>this.loadData());
+        Endpoints.createStudyGoalForLesson(this.id,goal).then(()=>this.loadData());
     }
 
     /**
@@ -90,7 +92,7 @@ class LessonPageComponent extends MaterialComponent{
      */
     @bind
     addGoal(): void{
-        //this.dialog.open(this.saveLesson);
+        this.dialog.open(this.saveGoal);
     }
 
 }

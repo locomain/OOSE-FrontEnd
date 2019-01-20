@@ -153,7 +153,7 @@ export class Endpoints{
     }
 
     /**
-     * Create
+     * Create studygoal
      *
      * @param moduleId
      * @returns {Promise<any>}
@@ -161,6 +161,17 @@ export class Endpoints{
     static async createStudyGoal(moduleId,goal){
         goal["module_id"] =  moduleId;
         return this.webserviceRequest(`goal`,RequestType.POST,goal);
+    }
+
+    /**
+     * Adds a studygoal to a lesson
+     *
+     * @param lessonId
+     * @param goalId
+     * @returns {Promise<any>}
+     */
+    static async createStudyGoalForLesson(lessonId,goalId){
+        return this.webserviceRequest(`class/${lessonId}/goal`,RequestType.POST,{goal_id:goalId})
     }
 
     /**
