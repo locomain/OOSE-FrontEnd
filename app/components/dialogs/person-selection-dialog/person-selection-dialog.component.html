@@ -1,0 +1,24 @@
+<div #dialog class="mdc-dialog mdc-dialog--scrollable" role="alertdialog"
+     aria-modal="true" aria-labelledby="mdc-dialog-with-list-label" aria-describedby="mdc-dialog-with-list-description">
+    <div class="mdc-dialog__scrim no-click-backdrop"></div>
+    <div class="mdc-dialog__container">
+        <div class="mdc-dialog__surface">
+            <h2 class="mdc-dialog__title">Persoon selecteren</h2>
+            <section id="mdc-dialog-with-list-description" class="mdc-dialog__content">
+                <ul class="mdc-list mdc-list--two-line">
+                    <li (for)="let person of persons" class="mdc-list-item" [onclick]="select" [data]="person.id" tabindex="0">
+                        <span class="mdc-list-item__text" [data]="person.id" >
+                          <span class="mdc-list-item__primary-text" [inner-h-t-m-l]="person.name" [data]="person.id" ></span>
+                          <span class="mdc-list-item__secondary-text" [inner-h-t-m-l]="person.email" [data]="person.id" ></span>
+                        </span>
+                    </li>
+                </ul>
+            </section>
+            <footer class="mdc-dialog__actions">
+                <button type="button" [onclick]="cancel" [style.color]="theme.darkColor" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" data-mdc-dialog-action="close">
+                    Annuleren
+                </button>
+            </footer>
+        </div>
+    </div>
+</div>

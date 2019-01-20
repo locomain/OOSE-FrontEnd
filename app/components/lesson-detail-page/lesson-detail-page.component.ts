@@ -9,6 +9,7 @@ import {Utils} from "@/utils/utils";
 import {LessonDialog} from "@/components/dialogs/lesson-dialog/lesson-dialog.component";
 import {StudyGoal} from "@/models/studygoal.model";
 import {StudyGoalSelectionDialog} from "@/components/dialogs/study-goal-selection-dialog/study-goal-selection-dialog.component";
+import {PersonSelectionDialog} from "@/components/dialogs/person-selection-dialog/person-selection-dialog.component";
 
 @component({
     tag:"lesson-detail-page",
@@ -19,6 +20,7 @@ class LessonPageComponent extends MaterialComponent{
 
     public loading = false;
     public lesson: Lesson;
+    public persondialog: PersonSelectionDialog;
     public dialog: StudyGoalSelectionDialog;
     public studyGoals: StudyGoal[] = [];
     public id: number;
@@ -93,6 +95,25 @@ class LessonPageComponent extends MaterialComponent{
     @bind
     addGoal(): void{
         this.dialog.open(this.saveGoal);
+    }
+
+    /**
+     * Saves the student to the module
+     *
+     * @param {number} id
+     */
+    @bind
+    saveTeachers(id: number){
+        this.loading = true;
+        Endpoints.addStudentToModule(this.id,id).then(()=>this.loadData());
+    }
+
+    /**
+     * Opens the student selection dialog
+     */
+    @bind
+    addTeacher(): void{
+        this.persondialog.open(this.saveTeachers);
     }
 
 }

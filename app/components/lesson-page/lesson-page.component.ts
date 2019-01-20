@@ -6,6 +6,8 @@ import {Lesson} from "@/models/lesson.model";
 import {LessonDialog} from "@/components/dialogs/lesson-dialog/lesson-dialog.component";
 import {StudyGoal} from "@/models/studygoal.model";
 import {StudyGoalDialog} from "@/components/dialogs/study-goal-dialog/study-goal-dialog.component";
+import {Student} from "@/models/student.model";
+import {PersonSelectionDialog} from "@/components/dialogs/person-selection-dialog/person-selection-dialog.component";
 
 @component({
     tag:"lesson-page",
@@ -17,10 +19,12 @@ class LessonPageComponent extends MaterialComponent{
     public loading = false;
     public module: Module;
     public dialog: LessonDialog;
+    public persondialog: PersonSelectionDialog;
     public goaldialog: StudyGoalDialog;
     public lessons: Lesson[] = [];
     public usedStudyGoals: StudyGoal[] = [];
     public unusedStudyGoals: StudyGoal[] = [];
+    public students: Student[] =[];
     public id: number;
     private educationId: number;
 
@@ -51,7 +55,16 @@ class LessonPageComponent extends MaterialComponent{
         await this.loadModule();
         await this.loadLessons();
         await this.loadStudyGoals();
+        await this.loadStudents();
         this.loading = false;
+    }
+
+
+    async loadStudents(): Promise<any>{
+        const result = await Endpoints.getStudentsInModule(this.id);
+        if(result){
+            this.students = result.map(student=>Student.fromWebservice(student));
+        }
     }
 
     /**
@@ -124,6 +137,25 @@ class LessonPageComponent extends MaterialComponent{
     @bind
     addGoal(){
         this.goaldialog.open(this.saveGoal)
+    }
+
+    /**
+     * Saves the student to the module
+     *
+     * @param {number} id
+     */
+    @bind
+    saveStudent(id: number){
+        this.loading = true;
+        Endpoints.addStudentToModule(this.id,id).then(()=>this.loadData());
+    }
+
+    /**
+     * Opens the student selection dialog
+     */
+    @bind
+    addStudent(){
+        this.persondialog.open(this.saveStudent);
     }
 
     /**

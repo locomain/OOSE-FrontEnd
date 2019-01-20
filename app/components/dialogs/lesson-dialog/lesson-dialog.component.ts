@@ -29,7 +29,7 @@ export class LessonDialog extends MaterialComponent implements IDialog{
     }
 
     /**
-     *
+     * On editor typed event
      */
     @bind
     public onTyped(e):void {

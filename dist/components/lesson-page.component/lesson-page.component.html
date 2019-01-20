@@ -36,9 +36,21 @@
                   <span class="mdc-list-item__secondary-text" [inner-text]="goal.description"></span>
                 </span>
             </li>
+            <div class="border-top"></div>
+            <h4 class="goal-title">Deelnemende studenten</h4>
+            <button class="goal-button mdc-button mdc-button--unelevated" [onclick]="addStudent">
+                <span class="mdc-button__label">Toevoegen</span>
+            </button>
+            <li (for)="let student of students" class="mdc-list-item" tabindex="0">
+                <span class="mdc-list-item__text">
+                  <span class="mdc-list-item__primary-text" [inner-text]="student.name"></span>
+                  <span class="mdc-list-item__secondary-text" [inner-text]="student.email"></span>
+                </span>
+            </li>
         </ul>
     </div>
 </div>
 <lesson-dialog #dialog ></lesson-dialog>
+<person-selection-dialog #persondialog topic="student" [topic-id]="id" ></person-selection-dialog>
 <study-goal-dialog #goaldialog ></study-goal-dialog>
 <page-loader (if)="loading"></page-loader>

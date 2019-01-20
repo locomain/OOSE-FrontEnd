@@ -17,6 +17,39 @@ export class Endpoints{
     }
 
     /**
+     * Get student in module
+     *
+     * @param moduleId
+     * @returns {Promise<any>}
+     */
+    static async getStudentsInModule(moduleId){
+        return this.webserviceRequest(`module/${moduleId}/student`,RequestType.GET);
+    }
+
+    /**
+     * Adds a student to a module
+     *
+     * @param moduleId
+     * @param studentId
+     * @returns {Promise<any>}
+     */
+    static async addStudentToModule(moduleId,studentId){
+        return this.webserviceRequest(`module/${moduleId}/student`,RequestType.POST,{
+            student_id:studentId
+        });
+    }
+
+    /**
+     * Get student that are not in the module
+     *
+     * @param moduleId
+     * @returns {Promise<any>}
+     */
+    static async getStudentsNotInModule(moduleId){
+        return this.webserviceRequest(`module/${moduleId}/unused_students`,RequestType.GET);
+    }
+
+    /**
      * Creates a student
      *
      * @returns {Promise<any>}

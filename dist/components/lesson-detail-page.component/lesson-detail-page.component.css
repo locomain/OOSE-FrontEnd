@@ -13,6 +13,16 @@
     left:0;
 }
 
+.goal-button{
+    right: 8px;
+    position: absolute;
+    margin-top: -30px;
+}
+
+.goal-title{
+    margin: 32px 0 0 16px;
+}
+
 .container{
     position: absolute;
     overflow-y:auto;
