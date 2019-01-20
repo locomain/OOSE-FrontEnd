@@ -141,7 +141,7 @@ export class Endpoints{
      * @returns {Promise<any>}
      */
     static async getModules(educationId){
-        return this.webserviceRequest(`modules`,RequestType.GET);
+        return this.webserviceRequest(`modules/${educationId}`,RequestType.GET);
     }
 
     /**
