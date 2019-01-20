@@ -143,6 +143,17 @@ export class Endpoints{
     }
 
     /**
+     * Gets unused study goals from a lesson
+     *
+     * @param lessonId
+     * @returns {Promise<any>}
+     */
+    static async getUnusedStudyGoalsFromLesson(lessonId){
+        return this.webserviceRequest(`class/${lessonId}/unused_goals`,RequestType.GET);
+    }
+
+
+    /**
      * Gets study goals from a lesson
      *
      * @param lessonId

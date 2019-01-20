@@ -84,7 +84,6 @@ class LessonPageComponent extends MaterialComponent{
      */
     async loadStudyGoals(): Promise<any>{
         const result = await Endpoints.getStudyGoalsStatusFromModule(this.id);
-        console.log(result);
         if(result){
             this.usedStudyGoals = result.used.map(studyGoal=>StudyGoal.fromWebservice(studyGoal));
             this.unusedStudyGoals = result.unused.map(studyGoal=>StudyGoal.fromWebservice(studyGoal));
@@ -109,12 +108,19 @@ class LessonPageComponent extends MaterialComponent{
         this.dialog.open(this.saveLesson);
     }
 
+    /**
+     *
+     * @param {StudyGoal} goal
+     */
     @bind
     saveGoal(goal: StudyGoal){
         this.loading = true;
         Endpoints.createStudyGoal(this.id,goal).then(()=>this.loadData());
     }
 
+    /**
+     * Adds a study goal
+     */
     @bind
     addGoal(){
         this.goaldialog.open(this.saveGoal)

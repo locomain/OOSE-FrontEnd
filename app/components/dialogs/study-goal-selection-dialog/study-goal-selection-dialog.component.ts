@@ -21,7 +21,7 @@ export class StudyGoalSelectionDialog extends MaterialComponent implements IDial
      * Sets module id value and reloads the data
      * @param val
      */
-    set module(val){
+    set lesson(val){
         this.id = val;
         this.loadData();
     }
@@ -30,7 +30,7 @@ export class StudyGoalSelectionDialog extends MaterialComponent implements IDial
      * Gets the module id value
      * @returns {number}
      */
-    get module(){
+    get lesson(){
         return this.id;
     }
 
@@ -40,11 +40,11 @@ export class StudyGoalSelectionDialog extends MaterialComponent implements IDial
      * @returns {Promise<void>}
      */
     async loadData(){
-       const result = await Endpoints.getStudyGoalsFromModule(this.id);
-       console.log(result);
-       if(result){
-           if(Array.isArray(result)) this.goals = result.map(goal=>StudyGoal.fromWebservice(goal));
-       }
+        if(!this.id)return;
+        const result = await Endpoints.getUnusedStudyGoalsFromLesson(this.id);
+        if(result){
+            if(Array.isArray(result)) this.goals = result.map(goal=>StudyGoal.fromWebservice(goal));
+        }
     }
 
     /**
@@ -53,6 +53,7 @@ export class StudyGoalSelectionDialog extends MaterialComponent implements IDial
      */
     @bind
     public open(callback:(goalId:number)=>void): void {
+        this.loadData();
         this.callback = callback;
         this.instance = new window.mdc.dialog.MDCDialog(this.dialog);
         this.instance.open();

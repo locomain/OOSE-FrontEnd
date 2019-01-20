@@ -87,8 +87,8 @@ export class LessonDialog extends MaterialComponent implements IDialog{
      */
     @bind
     public save(): void{
-        this.clear();
         this.envokeCallback();
         this.instance.close();
+        this.clear();
     }
 }
