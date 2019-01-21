@@ -8,7 +8,8 @@
     "watch": "webpack --watch",
     "serve:dev": "nodemon server.js",
     "dev": "concurrently \"npm run watch\" \"npm run serve:dev\"  ",
-    "test": "mocha -r ts-node/register tests/**/*.spec.ts"
+    "test": "mocha -r ts-node/register tests/**/*.test.ts",
+    "test:detail": "nyc -r lcov -e .ts -x \"*.test.ts\" mocha -r ts-node/register tests/**/*.test.ts && nyc report"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "file-loader": "^2.0.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.7",
+    "nyc": "^13.1.0",
     "ts-loader": "^5.3.1",
     "ts-node": "^7.0.1",
     "typescript": "^3.2.1",
