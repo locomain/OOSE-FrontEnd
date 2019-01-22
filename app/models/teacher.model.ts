@@ -1,7 +1,7 @@
 import {Person} from "@/models/person.model";
 
 /**
- * Definition of a student object in OOSE
+ * Definition of a teacher object in OOSE
  */
 export class Teacher extends Person {
 
@@ -13,7 +13,7 @@ export class Teacher extends Person {
     }
 
     /**
-     * Creates a student from the webservice student structure
+     * Creates a teacher from the webservice student structure
      * @param obj
      */
     static fromWebservice(obj:any): Teacher{

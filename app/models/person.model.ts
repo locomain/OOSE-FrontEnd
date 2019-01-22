@@ -1,3 +1,6 @@
+/**
+ * Definition of a person object in OOSE
+ */
 export class Person {
 
     protected firstname: string;

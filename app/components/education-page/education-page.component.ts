@@ -9,7 +9,7 @@ import {Person} from "@/models/person.model";
     view:require("./education-page.component.html"),
     style:require("./education-page.component.css")
 })
-class EducationComponent extends MaterialComponent{
+export class EducationComponent extends MaterialComponent{
 
     private dialog: any;
     private loading = false;

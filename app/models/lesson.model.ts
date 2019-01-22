@@ -1,5 +1,5 @@
 /**
- * Definition of a education object in OOSE
+ * Definition of a lesson object in OOSE
  */
 import {Utils} from "@/utils/utils";
 
@@ -19,7 +19,7 @@ export class Lesson{
     }
 
     /**
-     * Creates a education from the webservice student structure
+     * Creates a lesson from the webservice student structure
      * @param obj
      */
     static fromWebservice(obj: any, prefab: Lesson = null): Lesson{

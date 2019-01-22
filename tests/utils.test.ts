@@ -1,7 +1,7 @@
 //@ts-ignore
 import { expect } from 'chai';
 import 'mocha';
-import {Utils} from '../app/utils/utils';
+import {Utils} from '@/utils/utils';
 
 describe('Property keys to lowercase',()=>{
     it(`Should return-> { data : 1 }`,()=>{
@@ -10,7 +10,6 @@ describe('Property keys to lowercase',()=>{
         expect(JSON.stringify(data)).to.equal(JSON.stringify({data:1}));
     });
 });
-
 
 describe('Convert database date to a readable date',()=>{
     it('Should return -> 01-01-2020',()=>{
@@ -22,6 +21,6 @@ describe('Convert database date to a readable date',()=>{
 
 describe('Should check if a string has a uppercase char',()=>{
    it('Should return -> true',()=>{
-     expect(true).to.equal(true);
+     expect(Utils.hasUpperCaseChars("PascalCase")).to.equal(true);
    });
 });

@@ -1,5 +1,5 @@
 /**
- * Definition of a education object in OOSE
+ * Definition of a study goal object in OOSE
  */
 export class StudyGoal{
 
@@ -14,7 +14,7 @@ export class StudyGoal{
     }
 
     /**
-     * Creates a education from the webservice student structure
+     * Creates a study goal from the webservice student structure
      * @param obj
      */
     static fromWebservice(obj: any, prefab: StudyGoal = null): StudyGoal{
