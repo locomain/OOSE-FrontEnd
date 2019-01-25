@@ -35,3 +35,7 @@ body {
     position: relative;
     padding: 16px;
 }
+
+.mdc-linear-progress{
+    width: 100vw!important;
+}

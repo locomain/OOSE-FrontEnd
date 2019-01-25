@@ -106,7 +106,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n//
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.default = {\r\n    DEV: true,\r\n    WEBSERVICE_URL: \"http://86.81.214.138:3000\"\r\n};\r\n\n\n//# sourceURL=webpack:///./app/common/config.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.default = {\r\n    DEV: true,\r\n    WEBSERVICE_URL: \"http://84.84.151.92:3000\"\r\n};\r\n\n\n//# sourceURL=webpack:///./app/common/config.ts?");
 
 /***/ }),
 
@@ -783,7 +783,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n/*
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n/**\r\n * Definition of a education object in OOSE\r\n */\r\nconst utils_1 = __webpack_require__(/*! @/utils/utils */ \"./app/utils/utils.ts\");\r\nclass Lesson {\r\n    constructor(name, content, date, id = 0) {\r\n        this.name = name;\r\n        this.content = content;\r\n        this.date = date;\r\n        this.id = id;\r\n    }\r\n    /**\r\n     * Creates a education from the webservice student structure\r\n     * @param obj\r\n     */\r\n    static fromWebservice(obj, prefab = null) {\r\n        const date = utils_1.Utils.dateToReadableDate(obj.datum);\r\n        if (!prefab)\r\n            return new Lesson(obj.naam, obj.document.inhoud, date, obj.id);\r\n        prefab.name = obj.naam;\r\n        prefab.content = obj.document.inhoud;\r\n        prefab.date = date;\r\n        prefab.id = obj.id;\r\n        return prefab;\r\n    }\r\n}\r\nexports.Lesson = Lesson;\r\n\n\n//# sourceURL=webpack:///./app/models/lesson.model.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n/**\r\n * Definition of a lesson object in OOSE\r\n */\r\nconst utils_1 = __webpack_require__(/*! @/utils/utils */ \"./app/utils/utils.ts\");\r\nclass Lesson {\r\n    constructor(name, content, date, id = 0) {\r\n        this.name = name;\r\n        this.content = content;\r\n        this.date = date;\r\n        this.id = id;\r\n    }\r\n    /**\r\n     * Creates a lesson from the webservice student structure\r\n     * @param obj\r\n     */\r\n    static fromWebservice(obj, prefab = null) {\r\n        const date = utils_1.Utils.dateToReadableDate(obj.datum);\r\n        if (!prefab)\r\n            return new Lesson(obj.naam, obj.document.inhoud, date, obj.id);\r\n        prefab.name = obj.naam;\r\n        prefab.content = obj.document.inhoud;\r\n        prefab.date = date;\r\n        prefab.id = obj.id;\r\n        return prefab;\r\n    }\r\n}\r\nexports.Lesson = Lesson;\r\n\n\n//# sourceURL=webpack:///./app/models/lesson.model.ts?");
 
 /***/ }),
 
@@ -795,7 +795,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n/*
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n/**\r\n * Definition of a education object in OOSE\r\n */\r\nconst utils_1 = __webpack_require__(/*! @/utils/utils */ \"./app/utils/utils.ts\");\r\nclass Module {\r\n    constructor(name, description, startDate, endDate, id = 0) {\r\n        this.name = name;\r\n        this.description = description;\r\n        this.startDate = startDate;\r\n        this.endDate = endDate;\r\n        this.id = id;\r\n    }\r\n    /**\r\n     * Creates a education from the webservice student structure\r\n     * @param obj\r\n     */\r\n    static fromWebservice(obj, prefab = null) {\r\n        if (!prefab)\r\n            return new Module(obj.naam, obj.beschrijving, obj.startdatum, obj.einddatum, obj.id);\r\n        prefab.name = obj.naam;\r\n        prefab.description = obj.beschrijving;\r\n        prefab.startDate = utils_1.Utils.dateToReadableDate(obj.startdatum);\r\n        prefab.endDate = utils_1.Utils.dateToReadableDate(obj.einddatum);\r\n        prefab.id = obj.id;\r\n        return prefab;\r\n    }\r\n}\r\nexports.Module = Module;\r\n\n\n//# sourceURL=webpack:///./app/models/module.model.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n/**\r\n * Definition of a module object in OOSE\r\n */\r\nconst utils_1 = __webpack_require__(/*! @/utils/utils */ \"./app/utils/utils.ts\");\r\nclass Module {\r\n    constructor(name, description, startDate, endDate, id = 0) {\r\n        this.name = name;\r\n        this.description = description;\r\n        this.startDate = startDate;\r\n        this.endDate = endDate;\r\n        this.id = id;\r\n    }\r\n    /**\r\n     * Creates a module from the webservice student structure\r\n     * @param obj\r\n     */\r\n    static fromWebservice(obj, prefab = null) {\r\n        if (!prefab)\r\n            return new Module(obj.naam, obj.beschrijving, obj.startdatum, obj.einddatum, obj.id);\r\n        prefab.name = obj.naam;\r\n        prefab.description = obj.beschrijving;\r\n        prefab.startDate = utils_1.Utils.dateToReadableDate(obj.startdatum);\r\n        prefab.endDate = utils_1.Utils.dateToReadableDate(obj.einddatum);\r\n        prefab.id = obj.id;\r\n        return prefab;\r\n    }\r\n}\r\nexports.Module = Module;\r\n\n\n//# sourceURL=webpack:///./app/models/module.model.ts?");
 
 /***/ }),
 
@@ -819,7 +819,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n/*
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nclass Person {\r\n    constructor(firstname, lastname, email) {\r\n        this.firstname = firstname;\r\n        this.lastname = lastname;\r\n        this.email = email;\r\n    }\r\n    /**\r\n     * Returns complete name\r\n     * @returns {string}\r\n     */\r\n    get name() {\r\n        return `${this.firstname} ${this.lastname}`;\r\n    }\r\n}\r\nexports.Person = Person;\r\n\n\n//# sourceURL=webpack:///./app/models/person.model.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n/**\r\n * Definition of a person object in OOSE\r\n */\r\nclass Person {\r\n    constructor(firstname, lastname, email) {\r\n        this.firstname = firstname;\r\n        this.lastname = lastname;\r\n        this.email = email;\r\n    }\r\n    /**\r\n     * Returns complete name\r\n     * @returns {string}\r\n     */\r\n    get name() {\r\n        return `${this.firstname} ${this.lastname}`;\r\n    }\r\n}\r\nexports.Person = Person;\r\n\n\n//# sourceURL=webpack:///./app/models/person.model.ts?");
 
 /***/ }),
 
@@ -843,7 +843,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nco
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n/**\r\n * Definition of a education object in OOSE\r\n */\r\nclass StudyGoal {\r\n    constructor(name, description, id = 0) {\r\n        this.name = name;\r\n        this.description = description;\r\n        this.id = id;\r\n    }\r\n    /**\r\n     * Creates a education from the webservice student structure\r\n     * @param obj\r\n     */\r\n    static fromWebservice(obj, prefab = null) {\r\n        if (!prefab)\r\n            return new StudyGoal(obj.naam, obj.beschrijving, obj.id);\r\n        prefab.name = obj.naam;\r\n        prefab.id = obj.id;\r\n        return prefab;\r\n    }\r\n}\r\nexports.StudyGoal = StudyGoal;\r\n\n\n//# sourceURL=webpack:///./app/models/studygoal.model.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n/**\r\n * Definition of a study goal object in OOSE\r\n */\r\nclass StudyGoal {\r\n    constructor(name, description, id = 0) {\r\n        this.name = name;\r\n        this.description = description;\r\n        this.id = id;\r\n    }\r\n    /**\r\n     * Creates a study goal from the webservice student structure\r\n     * @param obj\r\n     */\r\n    static fromWebservice(obj, prefab = null) {\r\n        if (!prefab)\r\n            return new StudyGoal(obj.naam, obj.beschrijving, obj.id);\r\n        prefab.name = obj.naam;\r\n        prefab.id = obj.id;\r\n        return prefab;\r\n    }\r\n}\r\nexports.StudyGoal = StudyGoal;\r\n\n\n//# sourceURL=webpack:///./app/models/studygoal.model.ts?");
 
 /***/ }),
 
@@ -855,7 +855,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n/*
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst person_model_1 = __webpack_require__(/*! @/models/person.model */ \"./app/models/person.model.ts\");\r\n/**\r\n * Definition of a student object in OOSE\r\n */\r\nclass Teacher extends person_model_1.Person {\r\n    constructor(firstname, lastname, email, id) {\r\n        super(firstname, lastname, email);\r\n        this.id = id;\r\n    }\r\n    /**\r\n     * Creates a student from the webservice student structure\r\n     * @param obj\r\n     */\r\n    static fromWebservice(obj) {\r\n        return new Teacher(obj.persoon.voornaam, obj.persoon.achternaam, obj.persoon.emailadres, obj.id);\r\n    }\r\n}\r\nexports.Teacher = Teacher;\r\n\n\n//# sourceURL=webpack:///./app/models/teacher.model.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst person_model_1 = __webpack_require__(/*! @/models/person.model */ \"./app/models/person.model.ts\");\r\n/**\r\n * Definition of a teacher object in OOSE\r\n */\r\nclass Teacher extends person_model_1.Person {\r\n    constructor(firstname, lastname, email, id) {\r\n        super(firstname, lastname, email);\r\n        this.id = id;\r\n    }\r\n    /**\r\n     * Creates a teacher from the webservice student structure\r\n     * @param obj\r\n     */\r\n    static fromWebservice(obj) {\r\n        return new Teacher(obj.persoon.voornaam, obj.persoon.achternaam, obj.persoon.emailadres, obj.id);\r\n    }\r\n}\r\nexports.Teacher = Teacher;\r\n\n\n//# sourceURL=webpack:///./app/models/teacher.model.ts?");
 
 /***/ }),
 
